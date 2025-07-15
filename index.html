@@ -126,6 +126,13 @@
           });
         }
       });
+  function adjustElements() {
+  if (window.innerWidth < 600) {
+    document.querySelector('.m-hidden').style.display = 'none';
+  }
+}
+
+window.addEventListener('resize', adjustElements);
     </script>
   </body>
 </html>
