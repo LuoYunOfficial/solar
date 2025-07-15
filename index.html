@@ -1,12 +1,25 @@
 <!doctype html>
 <html lang="zh">
   <head>
+    <script>
+	    function loadHomeError(this):{
+	    // 获取父元素
+var parent = document.getElementById("root");
+
+// 创建新元素
+var newElement = document.createElement("p");
+newElement.innerHTML = "It's not your fault, but our problem.";
+
+// 插入新元素
+parent.appendChild(newElement);
+	    };
+		    </script>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/x-icon" href="https://luoyunofficial.github.io/solar/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Solar Community</title>
     <!--script type="module" crossorigin src="https://luoyunofficial.github.io/solar/assets/index.js"></script-->
-    <script type="module" crossorigin src="https://luoyunofficial.github.io/solar/assets/in.js" onerror="loadHomeError()"></script>
+    <script type="module" crossorigin src="https://luoyunofficial.github.io/solar/assets/in.js" onerror="loadHomeError(this)"></script>
     <link rel="stylesheet" crossorigin href="https://luoyunofficial.github.io/solar/assets/index.css">
   </head>
   <body>
@@ -134,19 +147,7 @@
       </div>
     </footer>
 
-    <script>
-	    function loadHomeError():{
-	    // 获取父元素
-var parent = document.getElementById("root");
-
-// 创建新元素
-var newElement = document.createElement("p");
-newElement.innerHTML = "It's not your fault, but our problem.";
-
-// 插入新元素
-parent.appendChild(newElement);
-	    };
-    </script>
+    
     <script>
       document.addEventListener("DOMContentLoaded", function() {
         const mobileMenuButton = document.getElementById("mobile-menu-button");
