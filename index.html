@@ -134,6 +134,17 @@
     </footer>
 
     <script>
+	    // 获取父元素
+var parent = document.getElementById("root");
+
+// 创建新元素
+var newElement = document.createElement("p");
+newElement.innerHTML = "It's not your fault, but our problem.";
+
+// 插入新元素
+parent.appendChild(newElement);
+    </script>
+    <script>
       document.addEventListener("DOMContentLoaded", function() {
         const mobileMenuButton = document.getElementById("mobile-menu-button");
         const mobileMenu = document.getElementById("mobile-menu");
