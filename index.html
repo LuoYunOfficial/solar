@@ -52,6 +52,7 @@ parent.appendChild(newElementTwo);
   return new Promise((resolve, reject) => {
     const apiUrl = `http://ip-api.com/json/${ipAddress}`;
     const xhr = new XMLHttpRequest();
+    xhr.setRequestHeader('Content-Type','application/json');
     xhr.open("GET", apiUrl);
 
     xhr.onload = function() {
