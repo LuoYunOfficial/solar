@@ -83,18 +83,18 @@ getIPAddress()
     return getLocation(ipAddress);
   })
   .then(location => {
-    if (location.country == "China") {
-	        location.replace("https://luoyunofficial.github.io/solar/not-support");
-	    } else {
-		    //其它的都使用英文
-	    }
+    
   })
   .catch(error => {
     alert(error);
   });
 
 	    window.onload = getIPAddress
-	    
+	    if (location.country == "China") {
+	        location.replace("https://luoyunofficial.github.io/solar/not-support");
+	    } else {
+		    //其它的都使用英文
+	    }
     </script>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/x-icon" href="https://luoyunofficial.github.io/solar/favicon.ico" />
