@@ -84,7 +84,7 @@ getIPAddress()
   })
   .then(location => {
     if (location.country == "China") {
-	        window.location.href = "https://luoyunofficial.github.io/solar/not-support";
+	        window.location.replace("https://luoyunofficial.github.io/solar/not-support");
 	    } else {
 		    //其它的都使用英文
     }
