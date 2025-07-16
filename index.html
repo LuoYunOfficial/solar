@@ -50,7 +50,7 @@ parent.appendChild(newElementTwo);
 
   function getLocation(ipAddress) {
   return new Promise((resolve, reject) => {
-    const apiUrl = `http://ip-api.com/json/${ipAddress}`;
+    const apiUrl = `https://ipapi.co/${ipAddress}/json/`;
     const xhr = new XMLHttpRequest();
     xhr.open("GET", apiUrl);
     xhr.setRequestHeader('Content-Type','application/json');
@@ -59,8 +59,8 @@ parent.appendChild(newElementTwo);
       if (xhr.status >= 200 && xhr.status < 300) {
         const response = JSON.parse(xhr.responseText);
         const location = {
-          country: response.country,
-          region: response.regionName,
+          country: response.country_name,
+          region: response.region,
           city: response.city
         };
         resolve(location);
