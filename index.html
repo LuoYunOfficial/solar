@@ -81,7 +81,7 @@ getIPAddress()
     return getLocation(ipAddress);
   })
   .then(location => {
-    alert(location);
+    alert(location.country);
   })
   .catch(error => {
     alert(error);
