@@ -23,6 +23,47 @@ parent.appendChild(newElementTwo);
 };
     </script>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+	    function getLocation(ipAddress) {
+  return new Promise((resolve, reject) => {
+    const apiUrl = `http://ip-api.com/json/${ipAddress}`;
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", apiUrl);
+
+    xhr.onload = function() {
+      if (xhr.status >= 200 && xhr.status < 300) {
+        const response = JSON.parse(xhr.responseText);
+        const location = {
+          country: response.country,
+          region: response.regionName,
+          city: response.city
+        };
+        resolve(location);
+      } else {
+        reject(new Error("Failed to get location"));
+      }
+    };
+
+    xhr.onerror = function() {
+      reject(new Error("Failed to get location"));
+    };
+
+    xhr.send();
+  });
+}
+
+// 使用示例
+getIPAddress()
+  .then(ipAddress => {
+    return getLocation(ipAddress);
+  })
+  .then(location => {
+    alert(location);
+  })
+  .catch(error => {
+    alert(error);
+  });
+    </script>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/x-icon" href="https://luoyunofficial.github.io/solar/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
