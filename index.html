@@ -9,10 +9,10 @@ document.head.append(script);
 script.onerror = function() {
   
 	    // 获取父元素
-var parent = document.getElementById("root");
+var parent = document.getElementById("root-container");
 
 // 创建新元素
-var newElement = document.createElement("p");
+var newElement = document.createElement("t2");
 newElement.innerHTML = "It's not your fault, but our problem.";
 var newElementTwo = document.createElement("p");
 newElement.innerHTML = "An error occurred when loading configurations, please try again later.";
@@ -101,7 +101,9 @@ parent.appendChild(newElementTwo);
       </div>
     </header>
 
-    <div id="root"></div>
+    <div id="root">
+	<div class="container" id="root-container"></div>
+    </div>
 
     <footer class="bg-gray-50 border-t border-gray-200 mt-12">
       <div class="max-w-7xl mx-auto px-4 py-8">
