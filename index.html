@@ -2,100 +2,9 @@
 <html lang="en">
   <head>
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
-    <script>
-	    let script = document.createElement('script');
-script.src = "https://luoyunofficial.github.io/solar/assets/in.js"; // 没有这个脚本
-document.head.append(script);
-
-script.onerror = function() {
-  
-	    // 获取父元素
-var parent = document.getElementById("root-container");
-
-// 创建新元素
-var newElement = document.createElement("t2");
-newElement.innerHTML = "It's not your fault, but our problem.";
-var newElementTwo = document.createElement("p");
-newElement.innerHTML = "An error occurred when loading configurations, please try again later.";
-
-// 插入新元素
-parent.appendChild(newElement);
-parent.appendChild(newElementTwo);
-};
-    </script>
+    
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <script>
-  function getIPAddress() {
-  return new Promise((resolve, reject) => {
-    const xhr = new XMLHttpRequest();
-    xhr.open("GET", "https://api64.ipify.org?format=json");
-
-    xhr.onload = function() {
-      if (xhr.status >= 200 && xhr.status < 300) {
-        const response = JSON.parse(xhr.responseText);
-        const ipAddress = response.ip;
-        resolve(ipAddress);
-      } else {
-        reject(new Error("Failed to get IP address"));
-      }
-    };
-
-    xhr.onerror = function() {
-      reject(new Error("Failed to get IP address"));
-    };
-
-    xhr.send();
-  });
-}
-
-  function getLocation(ipAddress) {
-  return new Promise((resolve, reject) => {
-    const apiUrl = `https://ipapi.co/${ipAddress}/json/`;
-    const xhr = new XMLHttpRequest();
-    xhr.open("GET", apiUrl);
-    xhr.setRequestHeader('Content-Type','application/json');
-
-    xhr.onload = function() {
-      if (xhr.status >= 200 && xhr.status < 300) {
-        const response = JSON.parse(xhr.responseText);
-        const location = {
-          country: response.country_name,
-          region: response.region,
-          city: response.city
-        };
-        resolve(location);
-      } else {
-        reject(new Error("Failed to get location"));
-      }
-    };
-
-    xhr.onerror = function() {
-      reject(new Error("Failed to get location"));
-    };
-
-    xhr.send();
-  });
-}
-
-// 使用示例
-getIPAddress()
-  .then(ipAddress => {
-    return getLocation(ipAddress);
-  })
-  .then(location => {
-    if (location.country == "China") {
-	        window.location.replace("https://luoyunofficial.github.io/solar/not-support");
-	    } else {
-		    //其它的都使用英文
-    }
-  })
-  .catch(error => {
-    alert(error);
-  });
-
-	    window.onload = getIPAddress
-	    
-    </script>
+    <script src="https://luoyunofficial.github.io/solar/assets/region.js"></script>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/x-icon" href="https://luoyunofficial.github.io/solar/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -146,12 +55,18 @@ getIPAddress()
             <button class="icon-button m-hidden">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
             </button>
+	    </div>
+	    <div class="m-hidden">
             <button class="icon-button m-hidden">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
             </button>
+	    </div>
+	    <div class="m-hidden">
             <button class="icon-button m-hidden">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/></svg>
             </button>
+	    </div>
+	    <div class="m-hidden">
             <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
               <p class="lang" key="LOGIN">登录</p>
             </button>
@@ -177,6 +92,27 @@ getIPAddress()
     <div id="root">
 	<div class="container" id="root-container"></div>
     </div>
+    <script>
+	    let script = document.createElement('script');
+script.src = "https://luoyunofficial.github.io/solar/assets/in.js"; // 没有这个脚本
+document.head.append(script);
+
+script.onerror = function() {
+  
+	    // 获取父元素
+var parent = document.getElementById("root-container");
+
+// 创建新元素
+var newElement = document.createElement("t2");
+newElement.innerHTML = "It's not your fault, but our problem.";
+var newElementTwo = document.createElement("p");
+newElement.innerHTML = "An error occurred when loading configurations, please try again later.";
+
+// 插入新元素
+parent.appendChild(newElement);
+parent.appendChild(newElementTwo);
+};
+    </script>
 
     <footer class="bg-gray-50 border-t border-gray-200 mt-12">
       <div class="max-w-7xl mx-auto px-4 py-8">
