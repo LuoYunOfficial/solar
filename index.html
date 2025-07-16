@@ -24,7 +24,30 @@ parent.appendChild(newElementTwo);
     </script>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script>
-	    function getLocation(ipAddress) {
+  function getIPAddress() {
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", "https://api.ipify.org?format=json");
+
+    xhr.onload = function() {
+      if (xhr.status >= 200 && xhr.status < 300) {
+        const response = JSON.parse(xhr.responseText);
+        const ipAddress = response.ip;
+        resolve(ipAddress);
+      } else {
+        reject(new Error("Failed to get IP address"));
+      }
+    };
+
+    xhr.onerror = function() {
+      reject(new Error("Failed to get IP address"));
+    };
+
+    xhr.send();
+  });
+}
+
+  function getLocation(ipAddress) {
   return new Promise((resolve, reject) => {
     const apiUrl = `http://ip-api.com/json/${ipAddress}`;
     const xhr = new XMLHttpRequest();
@@ -63,6 +86,8 @@ getIPAddress()
   .catch(error => {
     alert(error);
   });
+
+	    window.onload = getIPAddress
     </script>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/x-icon" href="https://luoyunofficial.github.io/solar/favicon.ico" />
