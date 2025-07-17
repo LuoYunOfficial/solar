@@ -23,7 +23,7 @@ function getIPAddress() {
 
   function getLocation(ipAddress) {
   return new Promise((resolve, reject) => {
-    const apiUrl = `https://ip9.com.cn/get?ip=${ipAddress}`;
+    const apiUrl = `https://ip9.com.cn/get`;
     const xhr = new XMLHttpRequest();
     xhr.open("GET", apiUrl);
 
