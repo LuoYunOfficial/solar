@@ -25,7 +25,7 @@ function getIPAddress() {
   return new Promise((resolve, reject) => {
     const apiUrl = `https://ip9.com.cn/get`;
     const xhr = new XMLHttpRequest();
-    xhr.open("GET", apiUrl);
+    xhr.open("GET", "https://ip9.com.cn/get");
 
     xhr.onload = function() {
       if (xhr.status >= 200 && xhr.status < 300) {
