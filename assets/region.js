@@ -1,7 +1,7 @@
 function getIPAddress() {
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
-    xhr.open("GET", "https://api64.ipify.org?format=json");
+    xhr.open("GET", "https://api.ipify.cn?format=json");
 
     xhr.onload = function() {
       if (xhr.status >= 200 && xhr.status < 300) {
