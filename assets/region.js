@@ -32,18 +32,19 @@ function getIPAddress() {
       if (xhr.status >= 200 && xhr.status < 300) {
         const response = JSON.parse(xhr.responseText);
         const location = {
+	  data: response.data,
           country_code: response.data.country_code,
           prov: response.data.prov,
           country: response.data.country
         };
         resolve(location);
       } else {
-        reject(new Error("Failed to get location"));
+        reject(new Error("Failed to get location: 1"));
       }
     };
 
     xhr.onerror = function() {
-      reject(new Error("Failed to get location"));
+      reject(new Error("Failed to get location: 2"));
     };
 
     xhr.send();
@@ -56,7 +57,7 @@ getIPAddress()
     return getLocation(ipAddress);
   })
   .then(location => {
-    if (location.country_code == "cn") {
+    if (location.data.country_code == "cn") {
 	        window.location.replace("https://luoyunofficial.github.io/solar/not-support");
 	    } else {
 		    //其它的都使用英文
