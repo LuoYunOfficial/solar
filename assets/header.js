@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         </div>
                         <div class="m-hidden">
                             <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
-                                <p class="lang" key="LOGIN">登录</p>
+                                <p class="lang" key="LOGIN">Login</p>
                             </button>
                         </div>
                         <button class="mobile-menu-button md:hidden" id="mobile-menu-button">
