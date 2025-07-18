@@ -75,4 +75,4 @@ const htmlContent = `
     </header>
 `;
 
-document.body.innerHTML = htmlContent;
+document.getElementById(‘header’).innerHTML = htmlContent;
