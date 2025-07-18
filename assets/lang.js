@@ -1,13 +1,15 @@
 var arrLang = {
   "en": {
     "HOME": "Home",
+    "TREND": "Trending",
     "ABOUT_US": "About Us",
-    "CONTACT": "Contact Us",
+    "CONTACT_US": "Contact Us",
   },
   "zh": {
     "HOME": "首页",
+    "TREND": "时下流行",
     "ABOUT_US": "关于我们",
-    "CONTACT": "联络我们",
+    "CONTACT_US": "联系我们",
   }
 };
 
