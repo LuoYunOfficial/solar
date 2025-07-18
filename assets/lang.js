@@ -1,4 +1,4 @@
-import lang from 'https://luoyunofficial.github.io/solar/assets/lang.json' assert { type: 'JSON' };
+import lang from 'https://luoyunofficial.github.io/solar/assets/lang.json' assert { type: 'JSON' };;
 
 var arrLang = lang;
 
