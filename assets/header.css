@@ -1,0 +1,57 @@
+.mobile-menu-button{
+    padding:8px;
+    border-radius:6px;
+    transition:background-color .2s
+}
+.mobile-menu-button:hover{
+    background-color:#f3f4f6
+}
+#mobile-menu{
+    background-color:#fff;
+    border-top:1px solid #e5e7eb;
+    box-shadow:0 4px 6px -1px #0000001a
+}
+#mobile-menu nav a{
+    transition:all .2s
+}
+#mobile-menu nav a:hover{
+    background-color:#f3f4f6;
+    color:#3b82f6
+}
+.page-header {
+    text-align: center;
+    margin-bottom: 60px;
+    padding: 40px 0;
+    border-bottom: 1px solid #e5e5e7;
+}
+
+.page-header h1 {
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: #1d1d1f;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #1d1d1f 0%, #424245 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+@media (max-width: 768px) {
+    .page-header {
+        margin-bottom: 40px;
+        padding: 20px 0;
+    }
+    
+    .page-header h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-header h1 {
+        font-size: 2rem;
+    }
+}
+
+
