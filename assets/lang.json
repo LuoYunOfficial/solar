@@ -1,13 +1,17 @@
 {
   "en": {
     "HOME": "Home",
+    "SHORTS": "Shorts",
     "TREND": "Trending",
+    "GAME_CENTER": "Game Center",
     "ABOUT_US": "About Us",
     "CONTACT_US": "Contact Us",
   },
-  "zh": {
+  "zh_cn": {
     "HOME": "首页",
+    "SHORTS": "短视频",
     "TREND": "时下流行",
+    "GAME_CENTER": "游戏中心",
     "ABOUT_US": "关于我们",
     "CONTACT_US": "联系我们",
   }
