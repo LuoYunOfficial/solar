@@ -7,9 +7,16 @@ var arrLang = {
     "LOGIN": "Login",
     "REGISTER": "Register",
     "ABOUT_US": "About Us",
+    "ABOUT_SOLAR": "About Solar",
+    "JOIN_US": "Join Us",
+    "PRIVACY_POLICY": "Privacy Policy",
+    "TERMS_OF_SERVICE": "Terms of Service",
+    "COMMUNITY_GUIDELINE": "Community Guidelines",
     "HELP_CENTER": "Help Center",
     "CONTACT_US": "Contact Us",
     "MORE": "More",
+    "CREATOR_CENTER": "Creator Center",
+    "DOWNLOAD_APP": "Download Apps",
   },
   "zh": {
     "HOME": "首页",
@@ -19,9 +26,16 @@ var arrLang = {
     "LOGIN": "登录",
     "REGISTER": "注册",
     "ABOUT_US": "关于我们",
+    "ABOUT_SOLAR": "关于Solar",
+    "JOIN_US": "加入我们",
+    "PRIVACY_POLICY": "隐私政策",
+    "TERMS_POF_SERVICE": "用户服务协议",
+    "COMMUNITY_GUIDELINE": "社区公约",
     "HELP_CENTER": "帮助中心",
     "CONTACT_US": "联系我们",
     "MORE": "更多",
+    "CREATOR_CENTER": "创作者中心",
+    "DOWNLOAD_APP": "下载App",
   }
 };
 
