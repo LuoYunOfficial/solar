@@ -29,7 +29,7 @@ var arrLang = {
     "ABOUT_SOLAR": "关于Solar",
     "JOIN_US": "加入我们",
     "PRIVACY_POLICY": "隐私政策",
-    "TERMS_POF_SERVICE": "用户服务协议",
+    "TERMS_OF_SERVICE": "用户服务协议",
     "COMMUNITY_GUIDELINE": "社区公约",
     "HELP_CENTER": "帮助中心",
     "CONTACT_US": "联系我们",
