@@ -7,7 +7,7 @@ var arrLang = {
     "ABOUT_US": "About Us",
     "CONTACT_US": "Contact Us",
   },
-  "zh_cn": {
+  "zh_CN": {
     "HOME": "首页",
     "SHORTS": "短视频",
     "TREND": "时下流行",
