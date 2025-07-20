@@ -23,6 +23,7 @@ var arrLang = {
     "CREATOR_CENTER": "Creator Center",
     "CHILD_PROTECTION_PLATFORM": "Child Protection Platform",
     "DOWNLOAD_APP": "Download Apps",
+    "CURRENT_LANGUAGE": "Language：English (US)",
   },
   "zh": {
     "HOME": "首页",
@@ -48,6 +49,7 @@ var arrLang = {
     "CREATOR_CENTER": "创作者中心",
     "CHILD_PROTECTION_PLATFORM": "未成年人保护平台",
     "DOWNLOAD_APP": "下载App",
+    "CURRENT_LANGUAGE": "语言：简体中文",
   }
 };
 
