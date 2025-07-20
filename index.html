@@ -93,45 +93,558 @@
         }
       }
 
-      /* 主内容区域样式 */
-      .main-content {
-        min-height: 400px;
-        padding: 2rem;
-        background: #f9fafb;
-        margin: 2rem 0;
+      /* Solar主页布局样式 - 使用前缀避免冲突 */
+      .solar-main-content {
+        min-height: 100vh;
+        background-color: #f9fafb;
       }
-      
-      .content-placeholder {
-        text-align: center;
-        color: #6b7280;
-        font-size: 1.1rem;
-        padding: 3rem;
-        background: white;
+
+      /* 轮播横幅样式 */
+      .solar-banner {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 60px 0;
+        margin-bottom: 30px;
+      }
+
+      .solar-banner-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        position: relative;
+      }
+
+      .solar-banner-slide {
+        display: none;
+        align-items: center;
+        gap: 60px;
+      }
+
+      .solar-banner-slide.active {
+        display: flex;
+      }
+
+      .solar-banner-content {
+        flex: 1;
+      }
+
+      .solar-banner-content h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 16px;
+        line-height: 1.2;
+      }
+
+      .solar-banner-content p {
+        font-size: 1.2rem;
+        margin-bottom: 24px;
+        opacity: 0.9;
+      }
+
+      .solar-banner-btn {
+        background: rgba(255, 255, 255, 0.2);
+        border: 2px solid white;
+        color: white;
+        padding: 12px 24px;
         border-radius: 8px;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
       }
-      
-      .loading-spinner {
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-        border: 3px solid #f3f3f3;
-        border-top: 3px solid #3498db;
+
+      .solar-banner-btn:hover {
+        background: white;
+        color: #667eea;
+      }
+
+      .solar-banner-image {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .solar-banner-placeholder {
+        width: 400px;
+        height: 250px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        border: 2px dashed rgba(255, 255, 255, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .solar-banner-placeholder::before {
+        content: "🖼️ 轮播图片";
+        font-size: 1.2rem;
+        opacity: 0.7;
+      }
+
+      .solar-banner-controls {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        pointer-events: none;
+      }
+
+      .solar-banner-prev,
+      .solar-banner-next {
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        color: white;
+        width: 50px;
+        height: 50px;
         border-radius: 50%;
-        animation: spin 1s linear infinite;
-        margin-right: 10px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        pointer-events: all;
+        transition: all 0.3s ease;
+      }
+
+      .solar-banner-prev:hover,
+      .solar-banner-next:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+
+      .solar-banner-indicators {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 8px;
+      }
+
+      .solar-banner-indicators span {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.4);
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .solar-banner-indicators span.active {
+        background: white;
+      }
+
+      /* 分类导航栏样式 */
+      .solar-category-nav {
+        background: white;
+        border-bottom: 1px solid #e5e7eb;
+        padding: 16px 0;
+        margin-bottom: 30px;
+      }
+
+      .solar-category-container {
+        position: relative;
+      }
+
+      .solar-category-tabs {
+        display: flex;
+        gap: 24px;
+        overflow-x: hidden; /* 隐藏默认滚动条 */
+        padding-bottom: 8px;
+        scroll-behavior: smooth;
+        position: relative;
+        
+        /* 确保在所有浏览器中隐藏滚动条 */
+        -ms-overflow-style: none;  /* Internet Explorer 10+ */
+        scrollbar-width: none;  /* Firefox */
       }
       
-      @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
+      /* 隐藏 WebKit 浏览器的滚动条 */
+      .solar-category-tabs::-webkit-scrollbar {
+        display: none;
+      }
+
+      .solar-category-tab {
+        background: none;
+        border: none;
+        color: #6b7280;
+        font-size: 1rem;
+        font-weight: 500;
+        padding: 8px 16px;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+        flex-shrink: 0; /* 防止标签收缩 */
+      }
+
+      .solar-category-tab:hover {
+        color: #3b82f6;
+        background: #eff6ff;
+      }
+
+      .solar-category-tab.active {
+        color: #3b82f6;
+        background: #eff6ff;
+        font-weight: 600;
+      }
+
+      /* 自定义滑动条样式 */
+      .solar-scrollbar-container {
+        margin-top: 8px;
+        height: 6px;
+        position: relative;
+      }
+
+      .solar-scrollbar-track {
+        width: 100%;
+        height: 6px;
+        background: #f1f5f9;
+        border-radius: 3px;
+        position: relative;
+        cursor: pointer;
+      }
+
+      .solar-scrollbar-thumb {
+        height: 6px;
+        background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+        border-radius: 3px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        cursor: grab;
+        transition: background 0.2s ease;
+        min-width: 40px; /* 最小宽度确保可拖拽 */
+      }
+
+      .solar-scrollbar-thumb:hover {
+        background: linear-gradient(90deg, #2563eb, #7c3aed);
+      }
+
+      .solar-scrollbar-thumb:active,
+      .solar-scrollbar-thumb.dragging {
+        cursor: grabbing;
+        background: linear-gradient(90deg, #1d4ed8, #6d28d9);
+      }
+
+      /* 响应式设计 - 移动端隐藏自定义滑动条 */
+      @media (max-width: 768px) {
+        .solar-scrollbar-container {
+          display: none;
+        }
+        
+        .solar-category-tabs {
+          overflow-x: auto; /* 移动端显示默认滚动条 */
+          gap: 16px;
+        }
+      }
+
+      /* 主布局样式 */
+      .solar-content-section {
+        padding-bottom: 60px;
+      }
+
+      .solar-layout {
+        display: grid;
+        grid-template-columns: 1fr 300px;
+        gap: 30px;
+      }
+
+      /* 内容网格样式 */
+      .solar-content-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+      }
+
+      /* 内容卡片样式 */
+      .solar-content-card {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .solar-content-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .solar-card-image {
+        position: relative;
+        width: 100%;
+        height: 160px;
+        overflow: hidden;
+      }
+
+      .solar-image-placeholder {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, #f3f4f6, #e5e7eb);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #9ca3af;
+        font-size: 0.9rem;
+      }
+
+      .solar-image-placeholder::before {
+        content: "🎬 视频封面";
+      }
+
+      .solar-card-duration {
+        position: absolute;
+        bottom: 8px;
+        right: 8px;
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+
+      .solar-card-content {
+        padding: 16px;
+      }
+
+      .solar-card-title {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #1f2937;
+        margin-bottom: 12px;
+        line-height: 1.4;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .solar-card-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+        font-size: 0.85rem;
+        color: #6b7280;
+      }
+
+      .solar-card-author {
+        font-weight: 500;
+      }
+
+      .solar-card-stats {
+        display: flex;
+        gap: 16px;
+        font-size: 0.8rem;
+        color: #9ca3af;
+      }
+
+      /* 侧边栏样式 */
+      .solar-sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .solar-sidebar-section {
+        background: white;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .solar-sidebar-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #1f2937;
+        margin-bottom: 16px;
+        padding-bottom: 8px;
+        border-bottom: 2px solid #3b82f6;
+      }
+
+      /* 热门话题样式 */
+      .solar-topic-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .solar-topic-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 8px;
+        border-radius: 8px;
+        transition: background-color 0.2s ease;
+      }
+
+      .solar-topic-item:hover {
+        background: #f9fafb;
+      }
+
+      .solar-topic-rank {
+        width: 24px;
+        height: 24px;
+        background: #3b82f6;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+
+      .solar-topic-name {
+        flex: 1;
+        font-size: 0.9rem;
+        color: #374151;
+      }
+
+      .solar-topic-count {
+        font-size: 0.8rem;
+        color: #9ca3af;
+      }
+
+      /* 推荐用户样式 */
+      .solar-user-list {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .solar-user-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .solar-user-avatar {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+        border-radius: 50%;
+      }
+
+      .solar-user-info {
+        flex: 1;
+      }
+
+      .solar-user-name {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #1f2937;
+        margin-bottom: 2px;
+      }
+
+      .solar-user-desc {
+        font-size: 0.8rem;
+        color: #6b7280;
+      }
+
+      .solar-follow-btn {
+        background: #3b82f6;
+        color: white;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 6px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+      }
+
+      .solar-follow-btn:hover {
+        background: #2563eb;
+      }
+
+      /* 社区公告样式 */
+      .solar-announcement-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .solar-announcement-item {
+        padding: 12px;
+        background: #f9fafb;
+        border-radius: 8px;
+        border-left: 3px solid #3b82f6;
+      }
+
+      .solar-announcement-title {
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: #1f2937;
+        margin-bottom: 4px;
+      }
+
+      .solar-announcement-time {
+        font-size: 0.8rem;
+        color: #6b7280;
+      }
+
+      /* 响应式设计 */
+      @media (max-width: 1024px) {
+        .solar-layout {
+          grid-template-columns: 1fr;
+        }
+        
+        .solar-sidebar {
+          order: -1;
+        }
+        
+        .solar-content-grid {
+          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        }
+      }
+
+      @media (max-width: 768px) {
+        .solar-banner-slide {
+          flex-direction: column;
+          text-align: center;
+          gap: 30px;
+        }
+        
+        .solar-banner-content h2 {
+          font-size: 2rem;
+        }
+        
+        .solar-banner-placeholder {
+          width: 300px;
+          height: 200px;
+        }
+        
+        .solar-content-grid {
+          grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+          gap: 16px;
+        }
+        
+        .solar-category-tabs {
+          gap: 16px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .solar-content-grid {
+          grid-template-columns: 1fr;
+        }
+        
+        .solar-banner-content h2 {
+          font-size: 1.8rem;
+        }
+        
+        .solar-banner-placeholder {
+          width: 250px;
+          height: 150px;
+        }
       }
     </style>
   </head>
   <body>
     <script src="https://luoyunofficial.github.io/solar/assets/header.js"></script>
-
-    <script type="module" crossorigin src="https://luoyunofficial.github.io/solar/assets/index.js"></script>
     
     <div id="root">
       <div id="root-c" class="main-content">
@@ -142,6 +655,9 @@
         </div>
       </div>
     </div>
+
+    <!-- 移动到正确位置的脚本 -->
+    <script type="module" crossorigin src="https://luoyunofficial.github.io/solar/assets/index.js"></script>
 
     <footer class="bg-gray-50 border-t border-gray-200 mt-12">
       <div class="max-w-7xl mx-auto px-4 py-8">
@@ -296,4 +812,5 @@
 
   </body>
 </html>
+
 
