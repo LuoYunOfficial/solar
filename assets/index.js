@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-const headerHtml = `
+const mainHtml = `
         <!-- 主要内容区域 -->
         <main class="solar-main-content">
             <!-- 轮播横幅区域 -->
@@ -330,5 +330,5 @@ const headerHtml = `
             </section>
         </main>
     `;
-    document.body.insertAdjacentHTML('afterbegin', headerHtml);
+    document.body.insertAdjacentHTML('afterbegin', mainHtml);
 });
