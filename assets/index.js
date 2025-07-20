@@ -1,334 +1,329 @@
-document.addEventListener("DOMContentLoaded", function() {
-const mainHtml = `
-        <!-- 主要内容区域 -->
-        <main class="solar-main-content">
-            <!-- 轮播横幅区域 -->
-            <section class="solar-banner">
-                <div class="solar-banner-container">
-                    <div class="solar-banner-slide active">
-                        <div class="solar-banner-content">
-                            <h2 class="lang" key="BANNER_SLIDE_ONE_TITLE">欢迎来到 Solar Community</h2>
-                            <p class="lang" key="BANNER_SLIDE_ONE_DESCRIPTION">探索无限可能，连接全球创作者</p>
-                            <button class="solar-banner-btn  lang" key="BANNER_SLIDE_ONE_BUTTON">立即探索</button>
-                        </div>
-                        <div class="solar-banner-image">
-                            <div class="solar-banner-placeholder"></div>
-                        </div>
-                    </div>
-                    <div class="solar-banner-slide">
-                        <div class="solar-banner-content">
-                            <h2 class="lang" key="BANNER_SLIDE_TWO_TITLE">创作者中心</h2>
-                            <p class="lang" key="BANNER_SLIDE_TWO_DESCRIPTION">分享你的创意，获得更多关注</p>
-                            <button class="solar-banner-btn lang" key="BANNER_SLIDE_TWO_BUTTON">开始创作</button>
-                        </div>
-                        <div class="solar-banner-image">
-                            <div class="solar-banner-placeholder"></div>
-                        </div>
-                    </div>
-                    <div class="solar-banner-slide">
-                        <div class="solar-banner-content">
-                            <h2 class="lang" key="BANNER_SLIDE_THREE_TITLE">社区活动</h2>
-                            <p class="lang" key="BANNER_SLIDE_THREE_DESCRIPTION">参与精彩活动，赢取丰厚奖励</p>
-                            <button class="solar-banner-btn lang" key="BANNER_SLIDE_THREE_BUTTON">查看活动</button>
-                        </div>
-                        <div class="solar-banner-image">
-                            <div class="solar-banner-placeholder"></div>
-                        </div>
-                    </div>
-                    <!-- 轮播控制 -->
-                    <div class="solar-banner-controls">
-                        <button class="solar-banner-prev">‹</button>
-                        <button class="solar-banner-next">›</button>
-                    </div>
-                    <div class="solar-banner-indicators">
-                        <span class="active"></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 分类导航栏 -->
-            <section class="solar-category-nav">
-                <div class="max-w-7xl mx-auto px-4">
-                    <div class="solar-category-container">
-                        <div class="solar-category-tabs" id="categoryTabs">
-                            <button class="solar-category-tab lang active" key="HOT">热门</button>
-                            <button class="solar-category-tab lang" key="New">最新</button>
-                            <button class="solar-category-tab lang" key="GAME">游戏</button>
-                            <button class="solar-category-tab lang" key="TECH">科技</button>
-                            <button class="solar-category-tab lang" key="LIFESTYLE">生活</button>
-                            <button class="solar-category-tab lang" key="ENTERTAIN">娱乐</button>
-                            <button class="solar-category-tab lang" key="EDUCATION">教育</button>
-                            <button class="solar-category-tab lang"  key="MUSIC">音乐</button>
-                            <button class="solar-category-tab lang"  key="SPORTS">体育</button>
-                            <button class="solar-category-tab lang" key="ANIME">动漫</button>
-                            <button class="solar-category-tab lang" key="MOVIE">电影</button>
-                            <button class="solar-category-tab lang" key="DRAMA">电视剧</button>
-                            <button class="solar-category-tab lang" key="DOCUMENTARY">纪录片</button>
-                            <button class="solar-category-tab lang" key="DANCE">舞蹈</button>
-                            <button class="solar-category-tab lang" key="FASHION">时尚</button>
-                            <button class="solar-category-tab lang" key="CAR">汽车</button>
-                            <button class="solar-category-tab lang" key="KNOWLEDGE">知识</button>
-                        </div>
-                        <!-- 自定义滑动条 -->
-                        <div class="solar-scrollbar-container">
-                            <div class="solar-scrollbar-track">
-                                <div class="solar-scrollbar-thumb" id="scrollbarThumb"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 主内容区域 -->
-            <section class="solar-content-section">
-                <div class="max-w-7xl mx-auto px-4">
-                    <div class="solar-layout">
-                        <!-- 主要内容网格 -->
-                        <div class="solar-content-grid">
-                            <!-- 内容卡片 -->
-                            <div class="solar-content-card">
-                                <div class="solar-card-image">
-                                    <div class="solar-image-placeholder"></div>
-                                    <div class="solar-card-duration">12:34</div>
-                                </div>
-                                <div class="solar-card-content">
-                                    <h3 class="solar-card-title">探索人工智能的未来发展趋势</h3>
-                                    <div class="solar-card-meta">
-                                        <span class="solar-card-author">TechExplorer</span>
-                                        <span class="solar-card-time">2小时前</span>
-                                    </div>
-                                    <div class="solar-card-stats">
-                                        <span>👍 1.2k</span>
-                                        <span>💬 89</span>
-                                        <span>📤 156</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="solar-content-card">
-                                <div class="solar-card-image">
-                                    <div class="solar-image-placeholder"></div>
-                                    <div class="solar-card-duration">8:45</div>
-                                </div>
-                                <div class="solar-card-content">
-                                    <h3 class="solar-card-title">游戏开发入门教程：从零开始制作你的第一个游戏</h3>
-                                    <div class="solar-card-meta">
-                                        <span class="solar-card-author">GameDev Studio</span>
-                                        <span class="solar-card-time">5小时前</span>
-                                    </div>
-                                    <div class="solar-card-stats">
-                                        <span>👍 856</span>
-                                        <span>💬 124</span>
-                                        <span>📤 89</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="solar-content-card">
-                                <div class="solar-card-image">
-                                    <div class="solar-image-placeholder"></div>
-                                    <div class="solar-card-duration">15:22</div>
-                                </div>
-                                <div class="solar-card-content">
-                                    <h3 class="solar-card-title">美食制作：传统中式点心的制作技巧</h3>
-                                    <div class="solar-card-meta">
-                                        <span class="solar-card-author">美食达人</span>
-                                        <span class="solar-card-time">1天前</span>
-                                    </div>
-                                    <div class="solar-card-stats">
-                                        <span>👍 2.3k</span>
-                                        <span>💬 267</span>
-                                        <span>📤 445</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="solar-content-card">
-                                <div class="solar-card-image">
-                                    <div class="solar-image-placeholder"></div>
-                                    <div class="solar-card-duration">6:18</div>
-                                </div>
-                                <div class="solar-card-content">
-                                    <h3 class="solar-card-title">旅行日记：探索日本京都的隐秘景点</h3>
-                                    <div class="solar-card-meta">
-                                        <span class="solar-card-author">旅行者小王</span>
-                                        <span class="solar-card-time">2天前</span>
-                                    </div>
-                                    <div class="solar-card-stats">
-                                        <span>👍 1.8k</span>
-                                        <span>💬 156</span>
-                                        <span>📤 234</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="solar-content-card">
-                                <div class="solar-card-image">
-                                    <div class="solar-image-placeholder"></div>
-                                    <div class="solar-card-duration">20:15</div>
-                                </div>
-                                <div class="solar-card-content">
-                                    <h3 class="solar-card-title">编程教程：React开发实战项目</h3>
-                                    <div class="solar-card-meta">
-                                        <span class="solar-card-author">CodeMaster</span>
-                                        <span class="solar-card-time">3天前</span>
-                                    </div>
-                                    <div class="solar-card-stats">
-                                        <span>👍 3.1k</span>
-                                        <span>💬 298</span>
-                                        <span>📤 567</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="solar-content-card">
-                                <div class="solar-card-image">
-                                    <div class="solar-image-placeholder"></div>
-                                    <div class="solar-card-duration">11:33</div>
-                                </div>
-                                <div class="solar-card-content">
-                                    <h3 class="solar-card-title">健身指南：居家锻炼的有效方法</h3>
-                                    <div class="solar-card-meta">
-                                        <span class="solar-card-author">健身教练Lisa</span>
-                                        <span class="solar-card-time">4天前</span>
-                                    </div>
-                                    <div class="solar-card-stats">
-                                        <span>👍 1.5k</span>
-                                        <span>💬 89</span>
-                                        <span>📤 178</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="solar-content-card">
-                                <div class="solar-card-image">
-                                    <div class="solar-image-placeholder"></div>
-                                    <div class="solar-card-duration">9:27</div>
-                                </div>
-                                <div class="solar-card-content">
-                                    <h3 class="solar-card-title">音乐制作：如何创作你的第一首电子音乐</h3>
-                                    <div class="solar-card-meta">
-                                        <span class="solar-card-author">MusicProducer</span>
-                                        <span class="solar-card-time">5天前</span>
-                                    </div>
-                                    <div class="solar-card-stats">
-                                        <span>👍 967</span>
-                                        <span>💬 67</span>
-                                        <span>📤 123</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="solar-content-card">
-                                <div class="solar-card-image">
-                                    <div class="solar-image-placeholder"></div>
-                                    <div class="solar-card-duration">14:56</div>
-                                </div>
-                                <div class="solar-card-content">
-                                    <h3 class="solar-card-title">摄影技巧：如何拍出专业级的人像照片</h3>
-                                    <div class="solar-card-meta">
-                                        <span class="solar-card-author">摄影师张三</span>
-                                        <span class="solar-card-time">1周前</span>
-                                    </div>
-                                    <div class="solar-card-stats">
-                                        <span>👍 2.7k</span>
-                                        <span>💬 234</span>
-                                        <span>📤 389</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 侧边栏 -->
-                        <aside class="solar-sidebar">
-                            <!-- 热门话题 -->
-                            <div class="solar-sidebar-section">
-                                <h3 class="solar-sidebar-title">热门话题</h3>
-                                <div class="solar-topic-list">
-                                    <div class="solar-topic-item">
-                                        <span class="solar-topic-rank">1</span>
-                                        <span class="solar-topic-name">#人工智能发展</span>
-                                        <span class="solar-topic-count">12.3万</span>
-                                    </div>
-                                    <div class="solar-topic-item">
-                                        <span class="solar-topic-rank">2</span>
-                                        <span class="solar-topic-name">#游戏开发教程</span>
-                                        <span class="solar-topic-count">8.7万</span>
-                                    </div>
-                                    <div class="solar-topic-item">
-                                        <span class="solar-topic-rank">3</span>
-                                        <span class="solar-topic-name">#美食制作</span>
-                                        <span class="solar-topic-count">6.5万</span>
-                                    </div>
-                                    <div class="solar-topic-item">
-                                        <span class="solar-topic-rank">4</span>
-                                        <span class="solar-topic-name">#旅行分享</span>
-                                        <span class="solar-topic-count">5.2万</span>
-                                    </div>
-                                    <div class="solar-topic-item">
-                                        <span class="solar-topic-rank">5</span>
-                                        <span class="solar-topic-name">#编程学习</span>
-                                        <span class="solar-topic-count">4.8万</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- 推荐用户 -->
-                            <div class="solar-sidebar-section">
-                                <h3 class="solar-sidebar-title lang" key="FOLLOW_RECOMMEND">推荐关注</h3>
-                                <div class="solar-user-list">
-                                    <div class="solar-user-item">
-                                        <div class="solar-user-avatar"></div>
-                                        <div class="solar-user-info">
-                                            <div class="solar-user-name">TechExplorer</div>
-                                            <div class="solar-user-desc">科技探索者</div>
-                                        </div>
-                                        <button class="solar-follow-btn lang" key="FOLLOW">关注</button>
-                                    </div>
-                                    <div class="solar-user-item">
-                                        <div class="solar-user-avatar"></div>
-                                        <div class="solar-user-info">
-                                            <div class="solar-user-name">GameDev Studio</div>
-                                            <div class="solar-user-desc">游戏开发工作室</div>
-                                        </div>
-                                        <button class="solar-follow-btn lang" key="FOLLOW">关注</button>
-                                    </div>
-                                    <div class="solar-user-item">
-                                        <div class="solar-user-avatar"></div>
-                                        <div class="solar-user-info">
-                                            <div class="solar-user-name">美食达人</div>
-                                            <div class="solar-user-desc">美食制作专家</div>
-                                        </div>
-                                        <button class="solar-follow-btn lang" key="FOLLOW">关注</button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- 社区公告 -->
-                            <div class="solar-sidebar-section">
-                                <h3 class="solar-sidebar-title lang" key="COMMUNITY_ANNOUNCEMENT">社区公告</h3>
-                                <div class="solar-announcement-list">
-                                    <div class="solar-announcement-item">
-                                        <div class="solar-announcement-title">新功能上线通知</div>
-                                        <div class="solar-announcement-time">2024-01-15</div>
-                                    </div>
-                                    <div class="solar-announcement-item">
-                                        <div class="solar-announcement-title">社区规则更新</div>
-                                        <div class="solar-announcement-time">2024-01-10</div>
-                                    </div>
-                                    <div class="solar-announcement-item">
-                                        <div class="solar-announcement-title">春节活动预告</div>
-                                        <div class="solar-announcement-time">2024-01-08</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </aside>
-                    </div>
-                </div>
-            </section>
-        </main>
-    `;
-    document.body.insertAdjacentHTML('afterbegin', mainHtml);
-});
+document.writeln("        <!-- 主要内容区域 -->");
+document.writeln("        <main class=\"solar-main-content\">");
+document.writeln("            <!-- 轮播横幅区域 -->");
+document.writeln("            <section class=\"solar-banner\">");
+document.writeln("                <div class=\"solar-banner-container\">");
+document.writeln("                    <div class=\"solar-banner-slide active\">");
+document.writeln("                        <div class=\"solar-banner-content\">");
+document.writeln("                            <h2 class=\"lang\" key=\"BANNER_SLIDE_ONE_TITLE\">欢迎来到 Solar Community</h2>");
+document.writeln("                            <p class=\"lang\" key=\"BANNER_SLIDE_ONE_DESCRIPTION\">探索无限可能，连接全球创作者</p>");
+document.writeln("                            <button class=\"solar-banner-btn  lang\" key=\"BANNER_SLIDE_ONE_BUTTON\">立即探索</button>");
+document.writeln("                        </div>");
+document.writeln("                        <div class=\"solar-banner-image\">");
+document.writeln("                            <div class=\"solar-banner-placeholder\"></div>");
+document.writeln("                        </div>");
+document.writeln("                    </div>");
+document.writeln("                    <div class=\"solar-banner-slide\">");
+document.writeln("                        <div class=\"solar-banner-content\">");
+document.writeln("                            <h2 class=\"lang\" key=\"BANNER_SLIDE_TWO_TITLE\">创作者中心</h2>");
+document.writeln("                            <p class=\"lang\" key=\"BANNER_SLIDE_TWO_DESCRIPTION\">分享你的创意，获得更多关注</p>");
+document.writeln("                            <button class=\"solar-banner-btn lang\" key=\"BANNER_SLIDE_TWO_BUTTON\">开始创作</button>");
+document.writeln("                        </div>");
+document.writeln("                        <div class=\"solar-banner-image\">");
+document.writeln("                            <div class=\"solar-banner-placeholder\"></div>");
+document.writeln("                        </div>");
+document.writeln("                    </div>");
+document.writeln("                    <div class=\"solar-banner-slide\">");
+document.writeln("                        <div class=\"solar-banner-content\">");
+document.writeln("                            <h2 class=\"lang\" key=\"BANNER_SLIDE_THREE_TITLE\">社区活动</h2>");
+document.writeln("                            <p class=\"lang\" key=\"BANNER_SLIDE_THREE_DESCRIPTION\">参与精彩活动，赢取丰厚奖励</p>");
+document.writeln("                            <button class=\"solar-banner-btn lang\" key=\"BANNER_SLIDE_THREE_BUTTON\">查看活动</button>");
+document.writeln("                        </div>");
+document.writeln("                        <div class=\"solar-banner-image\">");
+document.writeln("                            <div class=\"solar-banner-placeholder\"></div>");
+document.writeln("                        </div>");
+document.writeln("                    </div>");
+document.writeln("                    <!-- 轮播控制 -->");
+document.writeln("                    <div class=\"solar-banner-controls\">");
+document.writeln("                        <button class=\"solar-banner-prev\">‹</button>");
+document.writeln("                        <button class=\"solar-banner-next\">›</button>");
+document.writeln("                    </div>");
+document.writeln("                    <div class=\"solar-banner-indicators\">");
+document.writeln("                        <span class=\"active\"></span>");
+document.writeln("                        <span></span>");
+document.writeln("                        <span></span>");
+document.writeln("                    </div>");
+document.writeln("                </div>");
+document.writeln("            </section>");
+document.writeln("");
+document.writeln("            <!-- 分类导航栏 -->");
+document.writeln("            <section class=\"solar-category-nav\">");
+document.writeln("                <div class=\"max-w-7xl mx-auto px-4\">");
+document.writeln("                    <div class=\"solar-category-container\">");
+document.writeln("                        <div class=\"solar-category-tabs\" id=\"categoryTabs\">");
+document.writeln("                            <button class=\"solar-category-tab lang active\" key=\"HOT\">热门</button>");
+document.writeln("                            <button class=\"solar-category-tab lang\" key=\"New\">最新</button>");
+document.writeln("                            <button class=\"solar-category-tab lang\" key=\"GAME\">游戏</button>");
+document.writeln("                            <button class=\"solar-category-tab lang\" key=\"TECH\">科技</button>");
+document.writeln("                            <button class=\"solar-category-tab lang\" key=\"LIFESTYLE\">生活</button>");
+document.writeln("                            <button class=\"solar-category-tab lang\" key=\"ENTERTAIN\">娱乐</button>");
+document.writeln("                            <button class=\"solar-category-tab lang\" key=\"EDUCATION\">教育</button>");
+document.writeln("                            <button class=\"solar-category-tab lang\"  key=\"MUSIC\">音乐</button>");
+document.writeln("                            <button class=\"solar-category-tab lang\"  key=\"SPORTS\">体育</button>");
+document.writeln("                            <button class=\"solar-category-tab lang\" key=\"ANIME\">动漫</button>");
+document.writeln("                            <button class=\"solar-category-tab lang\" key=\"MOVIE\">电影</button>");
+document.writeln("                            <button class=\"solar-category-tab lang\" key=\"DRAMA\">电视剧</button>");
+document.writeln("                            <button class=\"solar-category-tab lang\" key=\"DOCUMENTARY\">纪录片</button>");
+document.writeln("                            <button class=\"solar-category-tab lang\" key=\"DANCE\">舞蹈</button>");
+document.writeln("                            <button class=\"solar-category-tab lang\" key=\"FASHION\">时尚</button>");
+document.writeln("                            <button class=\"solar-category-tab lang\" key=\"CAR\">汽车</button>");
+document.writeln("                            <button class=\"solar-category-tab lang\" key=\"KNOWLEDGE\">知识</button>");
+document.writeln("                        </div>");
+document.writeln("                        <!-- 自定义滑动条 -->");
+document.writeln("                        <div class=\"solar-scrollbar-container\">");
+document.writeln("                            <div class=\"solar-scrollbar-track\">");
+document.writeln("                                <div class=\"solar-scrollbar-thumb\" id=\"scrollbarThumb\"></div>");
+document.writeln("                            </div>");
+document.writeln("                        </div>");
+document.writeln("                    </div>");
+document.writeln("                </div>");
+document.writeln("            </section>");
+document.writeln("");
+document.writeln("            <!-- 主内容区域 -->");
+document.writeln("            <section class=\"solar-content-section\">");
+document.writeln("                <div class=\"max-w-7xl mx-auto px-4\">");
+document.writeln("                    <div class=\"solar-layout\">");
+document.writeln("                        <!-- 主要内容网格 -->");
+document.writeln("                        <div class=\"solar-content-grid\">");
+document.writeln("                            <!-- 内容卡片 -->");
+document.writeln("                            <div class=\"solar-content-card\">");
+document.writeln("                                <div class=\"solar-card-image\">");
+document.writeln("                                    <div class=\"solar-image-placeholder\"></div>");
+document.writeln("                                    <div class=\"solar-card-duration\">12:34</div>");
+document.writeln("                                </div>");
+document.writeln("                                <div class=\"solar-card-content\">");
+document.writeln("                                    <h3 class=\"solar-card-title\">探索人工智能的未来发展趋势</h3>");
+document.writeln("                                    <div class=\"solar-card-meta\">");
+document.writeln("                                        <span class=\"solar-card-author\">TechExplorer</span>");
+document.writeln("                                        <span class=\"solar-card-time\">2小时前</span>");
+document.writeln("                                    </div>");
+document.writeln("                                    <div class=\"solar-card-stats\">");
+document.writeln("                                        <span>👍 1.2k</span>");
+document.writeln("                                        <span>💬 89</span>");
+document.writeln("                                        <span>📤 156</span>");
+document.writeln("                                    </div>");
+document.writeln("                                </div>");
+document.writeln("                            </div>");
+document.writeln("");
+document.writeln("                            <div class=\"solar-content-card\">");
+document.writeln("                                <div class=\"solar-card-image\">");
+document.writeln("                                    <div class=\"solar-image-placeholder\"></div>");
+document.writeln("                                    <div class=\"solar-card-duration\">8:45</div>");
+document.writeln("                                </div>");
+document.writeln("                                <div class=\"solar-card-content\">");
+document.writeln("                                    <h3 class=\"solar-card-title\">游戏开发入门教程：从零开始制作你的第一个游戏</h3>");
+document.writeln("                                    <div class=\"solar-card-meta\">");
+document.writeln("                                        <span class=\"solar-card-author\">GameDev Studio</span>");
+document.writeln("                                        <span class=\"solar-card-time\">5小时前</span>");
+document.writeln("                                    </div>");
+document.writeln("                                    <div class=\"solar-card-stats\">");
+document.writeln("                                        <span>👍 856</span>");
+document.writeln("                                        <span>💬 124</span>");
+document.writeln("                                        <span>📤 89</span>");
+document.writeln("                                    </div>");
+document.writeln("                                </div>");
+document.writeln("                            </div>");
+document.writeln("");
+document.writeln("                            <div class=\"solar-content-card\">");
+document.writeln("                                <div class=\"solar-card-image\">");
+document.writeln("                                    <div class=\"solar-image-placeholder\"></div>");
+document.writeln("                                    <div class=\"solar-card-duration\">15:22</div>");
+document.writeln("                                </div>");
+document.writeln("                                <div class=\"solar-card-content\">");
+document.writeln("                                    <h3 class=\"solar-card-title\">美食制作：传统中式点心的制作技巧</h3>");
+document.writeln("                                    <div class=\"solar-card-meta\">");
+document.writeln("                                        <span class=\"solar-card-author\">美食达人</span>");
+document.writeln("                                        <span class=\"solar-card-time\">1天前</span>");
+document.writeln("                                    </div>");
+document.writeln("                                    <div class=\"solar-card-stats\">");
+document.writeln("                                        <span>👍 2.3k</span>");
+document.writeln("                                        <span>💬 267</span>");
+document.writeln("                                        <span>📤 445</span>");
+document.writeln("                                    </div>");
+document.writeln("                                </div>");
+document.writeln("                            </div>");
+document.writeln("");
+document.writeln("                            <div class=\"solar-content-card\">");
+document.writeln("                                <div class=\"solar-card-image\">");
+document.writeln("                                    <div class=\"solar-image-placeholder\"></div>");
+document.writeln("                                    <div class=\"solar-card-duration\">6:18</div>");
+document.writeln("                                </div>");
+document.writeln("                                <div class=\"solar-card-content\">");
+document.writeln("                                    <h3 class=\"solar-card-title\">旅行日记：探索日本京都的隐秘景点</h3>");
+document.writeln("                                    <div class=\"solar-card-meta\">");
+document.writeln("                                        <span class=\"solar-card-author\">旅行者小王</span>");
+document.writeln("                                        <span class=\"solar-card-time\">2天前</span>");
+document.writeln("                                    </div>");
+document.writeln("                                    <div class=\"solar-card-stats\">");
+document.writeln("                                        <span>👍 1.8k</span>");
+document.writeln("                                        <span>💬 156</span>");
+document.writeln("                                        <span>📤 234</span>");
+document.writeln("                                    </div>");
+document.writeln("                                </div>");
+document.writeln("                            </div>");
+document.writeln("");
+document.writeln("                            <div class=\"solar-content-card\">");
+document.writeln("                                <div class=\"solar-card-image\">");
+document.writeln("                                    <div class=\"solar-image-placeholder\"></div>");
+document.writeln("                                    <div class=\"solar-card-duration\">20:15</div>");
+document.writeln("                                </div>");
+document.writeln("                                <div class=\"solar-card-content\">");
+document.writeln("                                    <h3 class=\"solar-card-title\">编程教程：React开发实战项目</h3>");
+document.writeln("                                    <div class=\"solar-card-meta\">");
+document.writeln("                                        <span class=\"solar-card-author\">CodeMaster</span>");
+document.writeln("                                        <span class=\"solar-card-time\">3天前</span>");
+document.writeln("                                    </div>");
+document.writeln("                                    <div class=\"solar-card-stats\">");
+document.writeln("                                        <span>👍 3.1k</span>");
+document.writeln("                                        <span>💬 298</span>");
+document.writeln("                                        <span>📤 567</span>");
+document.writeln("                                    </div>");
+document.writeln("                                </div>");
+document.writeln("                            </div>");
+document.writeln("");
+document.writeln("                            <div class=\"solar-content-card\">");
+document.writeln("                                <div class=\"solar-card-image\">");
+document.writeln("                                    <div class=\"solar-image-placeholder\"></div>");
+document.writeln("                                    <div class=\"solar-card-duration\">11:33</div>");
+document.writeln("                                </div>");
+document.writeln("                                <div class=\"solar-card-content\">");
+document.writeln("                                    <h3 class=\"solar-card-title\">健身指南：居家锻炼的有效方法</h3>");
+document.writeln("                                    <div class=\"solar-card-meta\">");
+document.writeln("                                        <span class=\"solar-card-author\">健身教练Lisa</span>");
+document.writeln("                                        <span class=\"solar-card-time\">4天前</span>");
+document.writeln("                                    </div>");
+document.writeln("                                    <div class=\"solar-card-stats\">");
+document.writeln("                                        <span>👍 1.5k</span>");
+document.writeln("                                        <span>💬 89</span>");
+document.writeln("                                        <span>📤 178</span>");
+document.writeln("                                    </div>");
+document.writeln("                                </div>");
+document.writeln("                            </div>");
+document.writeln("");
+document.writeln("                            <div class=\"solar-content-card\">");
+document.writeln("                                <div class=\"solar-card-image\">");
+document.writeln("                                    <div class=\"solar-image-placeholder\"></div>");
+document.writeln("                                    <div class=\"solar-card-duration\">9:27</div>");
+document.writeln("                                </div>");
+document.writeln("                                <div class=\"solar-card-content\">");
+document.writeln("                                    <h3 class=\"solar-card-title\">音乐制作：如何创作你的第一首电子音乐</h3>");
+document.writeln("                                    <div class=\"solar-card-meta\">");
+document.writeln("                                        <span class=\"solar-card-author\">MusicProducer</span>");
+document.writeln("                                        <span class=\"solar-card-time\">5天前</span>");
+document.writeln("                                    </div>");
+document.writeln("                                    <div class=\"solar-card-stats\">");
+document.writeln("                                        <span>👍 967</span>");
+document.writeln("                                        <span>💬 67</span>");
+document.writeln("                                        <span>📤 123</span>");
+document.writeln("                                    </div>");
+document.writeln("                                </div>");
+document.writeln("                            </div>");
+document.writeln("");
+document.writeln("                            <div class=\"solar-content-card\">");
+document.writeln("                                <div class=\"solar-card-image\">");
+document.writeln("                                    <div class=\"solar-image-placeholder\"></div>");
+document.writeln("                                    <div class=\"solar-card-duration\">14:56</div>");
+document.writeln("                                </div>");
+document.writeln("                                <div class=\"solar-card-content\">");
+document.writeln("                                    <h3 class=\"solar-card-title\">摄影技巧：如何拍出专业级的人像照片</h3>");
+document.writeln("                                    <div class=\"solar-card-meta\">");
+document.writeln("                                        <span class=\"solar-card-author\">摄影师张三</span>");
+document.writeln("                                        <span class=\"solar-card-time\">1周前</span>");
+document.writeln("                                    </div>");
+document.writeln("                                    <div class=\"solar-card-stats\">");
+document.writeln("                                        <span>👍 2.7k</span>");
+document.writeln("                                        <span>💬 234</span>");
+document.writeln("                                        <span>📤 389</span>");
+document.writeln("                                    </div>");
+document.writeln("                                </div>");
+document.writeln("                            </div>");
+document.writeln("                        </div>");
+document.writeln("");
+document.writeln("                        <!-- 侧边栏 -->");
+document.writeln("                        <aside class=\"solar-sidebar\">");
+document.writeln("                            <!-- 热门话题 -->");
+document.writeln("                            <div class=\"solar-sidebar-section\">");
+document.writeln("                                <h3 class=\"solar-sidebar-title\">热门话题</h3>");
+document.writeln("                                <div class=\"solar-topic-list\">");
+document.writeln("                                    <div class=\"solar-topic-item\">");
+document.writeln("                                        <span class=\"solar-topic-rank\">1</span>");
+document.writeln("                                        <span class=\"solar-topic-name\">#人工智能发展</span>");
+document.writeln("                                        <span class=\"solar-topic-count\">12.3万</span>");
+document.writeln("                                    </div>");
+document.writeln("                                    <div class=\"solar-topic-item\">");
+document.writeln("                                        <span class=\"solar-topic-rank\">2</span>");
+document.writeln("                                        <span class=\"solar-topic-name\">#游戏开发教程</span>");
+document.writeln("                                        <span class=\"solar-topic-count\">8.7万</span>");
+document.writeln("                                    </div>");
+document.writeln("                                    <div class=\"solar-topic-item\">");
+document.writeln("                                        <span class=\"solar-topic-rank\">3</span>");
+document.writeln("                                        <span class=\"solar-topic-name\">#美食制作</span>");
+document.writeln("                                        <span class=\"solar-topic-count\">6.5万</span>");
+document.writeln("                                    </div>");
+document.writeln("                                    <div class=\"solar-topic-item\">");
+document.writeln("                                        <span class=\"solar-topic-rank\">4</span>");
+document.writeln("                                        <span class=\"solar-topic-name\">#旅行分享</span>");
+document.writeln("                                        <span class=\"solar-topic-count\">5.2万</span>");
+document.writeln("                                    </div>");
+document.writeln("                                    <div class=\"solar-topic-item\">");
+document.writeln("                                        <span class=\"solar-topic-rank\">5</span>");
+document.writeln("                                        <span class=\"solar-topic-name\">#编程学习</span>");
+document.writeln("                                        <span class=\"solar-topic-count\">4.8万</span>");
+document.writeln("                                    </div>");
+document.writeln("                                </div>");
+document.writeln("                            </div>");
+document.writeln("");
+document.writeln("                            <!-- 推荐用户 -->");
+document.writeln("                            <div class=\"solar-sidebar-section\">");
+document.writeln("                                <h3 class=\"solar-sidebar-title lang\" key=\"FOLLOW_RECOMMEND\">推荐关注</h3>");
+document.writeln("                                <div class=\"solar-user-list\">");
+document.writeln("                                    <div class=\"solar-user-item\">");
+document.writeln("                                        <div class=\"solar-user-avatar\"></div>");
+document.writeln("                                        <div class=\"solar-user-info\">");
+document.writeln("                                            <div class=\"solar-user-name\">TechExplorer</div>");
+document.writeln("                                            <div class=\"solar-user-desc\">科技探索者</div>");
+document.writeln("                                        </div>");
+document.writeln("                                        <button class=\"solar-follow-btn lang\" key=\"FOLLOW\">关注</button>");
+document.writeln("                                    </div>");
+document.writeln("                                    <div class=\"solar-user-item\">");
+document.writeln("                                        <div class=\"solar-user-avatar\"></div>");
+document.writeln("                                        <div class=\"solar-user-info\">");
+document.writeln("                                            <div class=\"solar-user-name\">GameDev Studio</div>");
+document.writeln("                                            <div class=\"solar-user-desc\">游戏开发工作室</div>");
+document.writeln("                                        </div>");
+document.writeln("                                        <button class=\"solar-follow-btn lang\" key=\"FOLLOW\">关注</button>");
+document.writeln("                                    </div>");
+document.writeln("                                    <div class=\"solar-user-item\">");
+document.writeln("                                        <div class=\"solar-user-avatar\"></div>");
+document.writeln("                                        <div class=\"solar-user-info\">");
+document.writeln("                                            <div class=\"solar-user-name\">美食达人</div>");
+document.writeln("                                            <div class=\"solar-user-desc\">美食制作专家</div>");
+document.writeln("                                        </div>");
+document.writeln("                                        <button class=\"solar-follow-btn lang\" key=\"FOLLOW\">关注</button>");
+document.writeln("                                    </div>");
+document.writeln("                                </div>");
+document.writeln("                            </div>");
+document.writeln("");
+document.writeln("                            <!-- 社区公告 -->");
+document.writeln("                            <div class=\"solar-sidebar-section\">");
+document.writeln("                                <h3 class=\"solar-sidebar-title lang\" key=\"COMMUNITY_ANNOUNCEMENT\">社区公告</h3>");
+document.writeln("                                <div class=\"solar-announcement-list\">");
+document.writeln("                                    <div class=\"solar-announcement-item\">");
+document.writeln("                                        <div class=\"solar-announcement-title\">新功能上线通知</div>");
+document.writeln("                                        <div class=\"solar-announcement-time\">2024-01-15</div>");
+document.writeln("                                    </div>");
+document.writeln("                                    <div class=\"solar-announcement-item\">");
+document.writeln("                                        <div class=\"solar-announcement-title\">社区规则更新</div>");
+document.writeln("                                        <div class=\"solar-announcement-time\">2024-01-10</div>");
+document.writeln("                                    </div>");
+document.writeln("                                    <div class=\"solar-announcement-item\">");
+document.writeln("                                        <div class=\"solar-announcement-title\">春节活动预告</div>");
+document.writeln("                                        <div class=\"solar-announcement-time\">2024-01-08</div>");
+document.writeln("                                    </div>");
+document.writeln("                                </div>");
+document.writeln("                            </div>");
+document.writeln("                        </aside>");
+document.writeln("                    </div>");
+document.writeln("                </div>");
+document.writeln("            </section>");
+document.writeln("        </main>");
