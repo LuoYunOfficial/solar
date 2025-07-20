@@ -1,6 +1,6 @@
 let script = document.createElement('script');
 script.src = "https://luoyunofficial.github.io/solar/assets/index.js"; // 没有这个脚本
-document.head.append(script);
+document.getElementById("root").append(script);
 
 script.onerror = function() {
   
