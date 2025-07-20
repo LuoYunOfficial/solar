@@ -92,16 +92,59 @@
           min-width: 180px;
         }
       }
+
+      /* 主内容区域样式 */
+      .main-content {
+        min-height: 400px;
+        padding: 2rem;
+        background: #f9fafb;
+        margin: 2rem 0;
+      }
+      
+      .content-placeholder {
+        text-align: center;
+        color: #6b7280;
+        font-size: 1.1rem;
+        padding: 3rem;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+      
+      .loading-spinner {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 3px solid #f3f3f3;
+        border-top: 3px solid #3498db;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin-right: 10px;
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
     </style>
   </head>
   <body>
     <script src="https://luoyunofficial.github.io/solar/assets/header.js"></script>
 
     <script type="module" crossorigin src="https://luoyunofficial.github.io/solar/assets/main.js"></script>
+    
     <div id="root">
-	<div id="root-c"></div>
+      <div id="root-c" class="main-content">
+        <div class="content-placeholder">
+          <div class="loading-spinner"></div>
+          <p>Loading content...</p>
+          <p style="font-size: 0.9rem; margin-top: 1rem;">If content doesn't load, external scripts may be unavailable.</p>
+        </div>
+      </div>
     </div>
 
+    <!-- 移动到正确位置的脚本 -->
+    <script type="module" crossorigin src="https://luoyunofficial.github.io/solar/assets/index.js"></script>
 
     <footer class="bg-gray-50 border-t border-gray-200 mt-12">
       <div class="max-w-7xl mx-auto px-4 py-8">
@@ -214,8 +257,46 @@
             trigger.classList.remove('active');
           }
         });
+
+        // 备用内容加载逻辑
+        setTimeout(function() {
+          const rootC = document.getElementById('root-c');
+          const placeholder = rootC.querySelector('.content-placeholder');
+          
+          // 检查外部脚本是否成功加载了内容
+          if (placeholder && rootC.children.length === 1) {
+            // 如果外部脚本没有加载内容，显示备用内容
+            rootC.innerHTML = `
+              <div class="main-content">
+                <div style="text-align: center; padding: 3rem; background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
+                  <h2 style="color: #1f2937; margin-bottom: 1rem;">欢迎来到 Solar Community</h2>
+                  <p style="color: #6b7280; margin-bottom: 2rem;">外部脚本暂时无法加载，这是备用内容显示。</p>
+                  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                    <div style="padding: 1.5rem; background: #f3f4f6; border-radius: 8px;">
+                      <h3 style="color: #374151; margin-bottom: 0.5rem;">主页</h3>
+                      <p style="color: #6b7280; font-size: 0.9rem;">浏览最新的社区内容</p>
+                    </div>
+                    <div style="padding: 1.5rem; background: #f3f4f6; border-radius: 8px;">
+                      <h3 style="color: #374151; margin-bottom: 0.5rem;">短视频</h3>
+                      <p style="color: #6b7280; font-size: 0.9rem;">观看精彩的短视频内容</p>
+                    </div>
+                    <div style="padding: 1.5rem; background: #f3f4f6; border-radius: 8px;">
+                      <h3 style="color: #374151; margin-bottom: 0.5rem;">热门</h3>
+                      <p style="color: #6b7280; font-size: 0.9rem;">发现热门话题和内容</p>
+                    </div>
+                    <div style="padding: 1.5rem; background: #f3f4f6; border-radius: 8px;">
+                      <h3 style="color: #374151; margin-bottom: 0.5rem;">游戏中心</h3>
+                      <p style="color: #6b7280; font-size: 0.9rem;">体验各种有趣的游戏</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            `;
+          }
+        }, 3000); // 等待3秒后检查是否需要显示备用内容
       });
     </script>
 
   </body>
 </html>
+
