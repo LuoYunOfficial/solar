@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", function() {
 const headerHtml = `
         <!-- 主要内容区域 -->
         <main class="solar-main-content">
@@ -330,3 +331,4 @@ const headerHtml = `
         </main>
     `;
     document.body.insertAdjacentHTML('afterbegin', headerHtml);
+});
