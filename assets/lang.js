@@ -49,7 +49,7 @@ var arrLang = {
     "CREATOR_CENTER": "创作者中心",
     "CHILD_PROTECTION_PLATFORM": "未成年人保护平台",
     "DOWNLOAD_APP": "下载App",
-    "CURRENT_LANGUAGE": "语言：简体中文",
+    "CURRENT_LANGUAGE": "Language：简体中文",
   },
   "ja": {
     "HOME": "ホーム",
@@ -75,7 +75,7 @@ var arrLang = {
     "CREATOR_CENTER": "クリエイターセンター",
     "CHILD_PROTECTION_PLATFORM": "未成年者保護プラットフォーム",
     "DOWNLOAD_APP": "アプリをダウンロード",
-    "CURRENT_LANGUAGE": "言語：日本語"
+    "CURRENT_LANGUAGE": "Language：日本語"
   },
   "ko": {
     "HOME": "홈",
@@ -101,7 +101,7 @@ var arrLang = {
     "CREATOR_CENTER": "크리에이터 센터",
     "CHILD_PROTECTION_PLATFORM": "청소년 보호 플랫폼",
     "DOWNLOAD_APP": "앱 다운로드",
-    "CURRENT_LANGUAGE": "언어: 한국어"
+    "CURRENT_LANGUAGE": "Language: 한국어"
   }
 };
 
