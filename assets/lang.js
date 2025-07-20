@@ -76,7 +76,7 @@ var arrLang = {
     "CHILD_PROTECTION_PLATFORM": "未成年人保護平台",
     "DOWNLOAD_APP": "下載App",
     "CURRENT_LANGUAGE": "Language：繁體中文"
-  }
+  },
   "ja": {
     "HOME": "ホーム",
     "SHORTS": "ショート動画",
