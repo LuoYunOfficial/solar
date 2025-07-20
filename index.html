@@ -771,6 +771,232 @@
           }
         });
 
+        // 轮播功能
+        const slides = document.querySelectorAll('.solar-banner-slide');
+        const indicators = document.querySelectorAll('.solar-banner-indicators span');
+        const prevBtn = document.querySelector('.solar-banner-prev');
+        const nextBtn = document.querySelector('.solar-banner-next');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+          // 隐藏所有幻灯片
+          slides.forEach(slide => slide.classList.remove('active'));
+          indicators.forEach(indicator => indicator.classList.remove('active'));
+          
+          // 显示当前幻灯片
+          slides[index].classList.add('active');
+          indicators[index].classList.add('active');
+        }
+
+        function nextSlide() {
+          currentSlide = (currentSlide + 1) % slides.length;
+          showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+          currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+          showSlide(currentSlide);
+        }
+
+        // 绑定事件
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+
+        // 指示器点击事件
+        indicators.forEach((indicator, index) => {
+          indicator.addEventListener('click', () => {
+            currentSlide = index;
+            showSlide(currentSlide);
+          });
+        });
+
+        // 自动播放
+        setInterval(nextSlide, 5000);
+
+        // 自定义滑动条功能
+        const categoryTabs = document.getElementById('categoryTabs');
+        const scrollbarThumb = document.getElementById('scrollbarThumb');
+        const scrollbarTrack = scrollbarThumb.parentElement;
+        
+        let isDragging = false;
+        let startX = 0;
+        let startScrollLeft = 0;
+        let thumbStartX = 0;
+
+        // 初始化滑动条
+        function initScrollbar() {
+          updateScrollbarThumb();
+          
+          // 监听标签容器滚动事件
+          categoryTabs.addEventListener('scroll', updateScrollbarThumb);
+          
+          // 监听窗口大小变化
+          window.addEventListener('resize', updateScrollbarThumb);
+        }
+
+        // 更新滑动条拇指位置和大小
+        function updateScrollbarThumb() {
+          const containerWidth = categoryTabs.clientWidth;
+          const contentWidth = categoryTabs.scrollWidth;
+          const scrollLeft = categoryTabs.scrollLeft;
+          
+          // 如果内容不需要滚动，隐藏滑动条
+          if (contentWidth <= containerWidth) {
+            scrollbarTrack.parentElement.style.display = 'none';
+            return;
+          } else {
+            scrollbarTrack.parentElement.style.display = 'block';
+          }
+          
+          // 计算拇指宽度（按比例）
+          const thumbWidth = Math.max((containerWidth / contentWidth) * containerWidth, 40);
+          
+          // 计算拇指位置
+          const maxThumbLeft = containerWidth - thumbWidth;
+          const thumbLeft = (scrollLeft / (contentWidth - containerWidth)) * maxThumbLeft;
+          
+          // 应用样式
+          scrollbarThumb.style.width = thumbWidth + 'px';
+          scrollbarThumb.style.left = thumbLeft + 'px';
+        }
+
+        // 拇指拖拽事件
+        scrollbarThumb.addEventListener('mousedown', function(e) {
+          isDragging = true;
+          startX = e.clientX;
+          thumbStartX = parseInt(scrollbarThumb.style.left) || 0;
+          startScrollLeft = categoryTabs.scrollLeft;
+          
+          scrollbarThumb.classList.add('dragging');
+          document.body.style.userSelect = 'none'; // 防止文本选择
+          
+          e.preventDefault();
+        });
+
+        // 轨道点击事件
+        scrollbarTrack.addEventListener('click', function(e) {
+          if (e.target === scrollbarThumb) return;
+          
+          const trackRect = scrollbarTrack.getBoundingClientRect();
+          const clickX = e.clientX - trackRect.left;
+          const thumbWidth = scrollbarThumb.offsetWidth;
+          const newThumbLeft = Math.max(0, Math.min(clickX - thumbWidth / 2, trackRect.width - thumbWidth));
+          
+          // 计算对应的滚动位置
+          const containerWidth = categoryTabs.clientWidth;
+          const contentWidth = categoryTabs.scrollWidth;
+          const maxThumbLeft = containerWidth - thumbWidth;
+          const scrollRatio = newThumbLeft / maxThumbLeft;
+          const newScrollLeft = scrollRatio * (contentWidth - containerWidth);
+          
+          categoryTabs.scrollLeft = newScrollLeft;
+        });
+
+        // 全局鼠标移动事件
+        document.addEventListener('mousemove', function(e) {
+          if (!isDragging) return;
+          
+          const deltaX = e.clientX - startX;
+          const containerWidth = categoryTabs.clientWidth;
+          const contentWidth = categoryTabs.scrollWidth;
+          const thumbWidth = scrollbarThumb.offsetWidth;
+          const maxThumbLeft = containerWidth - thumbWidth;
+          
+          // 计算新的拇指位置
+          const newThumbLeft = Math.max(0, Math.min(thumbStartX + deltaX, maxThumbLeft));
+          
+          // 计算对应的滚动位置
+          const scrollRatio = newThumbLeft / maxThumbLeft;
+          const newScrollLeft = scrollRatio * (contentWidth - containerWidth);
+          
+          categoryTabs.scrollLeft = newScrollLeft;
+          
+          e.preventDefault();
+        });
+
+        // 全局鼠标释放事件
+        document.addEventListener('mouseup', function() {
+          if (isDragging) {
+            isDragging = false;
+            scrollbarThumb.classList.remove('dragging');
+            document.body.style.userSelect = '';
+          }
+        });
+
+        // 触摸事件支持（移动端）
+        scrollbarThumb.addEventListener('touchstart', function(e) {
+          isDragging = true;
+          const touch = e.touches[0];
+          startX = touch.clientX;
+          thumbStartX = parseInt(scrollbarThumb.style.left) || 0;
+          startScrollLeft = categoryTabs.scrollLeft;
+          
+          scrollbarThumb.classList.add('dragging');
+          e.preventDefault();
+        });
+
+        document.addEventListener('touchmove', function(e) {
+          if (!isDragging) return;
+          
+          const touch = e.touches[0];
+          const deltaX = touch.clientX - startX;
+          const containerWidth = categoryTabs.clientWidth;
+          const contentWidth = categoryTabs.scrollWidth;
+          const thumbWidth = scrollbarThumb.offsetWidth;
+          const maxThumbLeft = containerWidth - thumbWidth;
+          
+          const newThumbLeft = Math.max(0, Math.min(thumbStartX + deltaX, maxThumbLeft));
+          const scrollRatio = newThumbLeft / maxThumbLeft;
+          const newScrollLeft = scrollRatio * (contentWidth - containerWidth);
+          
+          categoryTabs.scrollLeft = newScrollLeft;
+          e.preventDefault();
+        });
+
+        document.addEventListener('touchend', function() {
+          if (isDragging) {
+            isDragging = false;
+            scrollbarThumb.classList.remove('dragging');
+          }
+        });
+
+        // 初始化滑动条
+        initScrollbar();
+
+        // 分类标签切换功能
+        const categoryTabButtons = document.querySelectorAll('.solar-category-tab');
+        categoryTabButtons.forEach(tab => {
+          tab.addEventListener('click', function() {
+            // 移除所有active状态
+            categoryTabButtons.forEach(t => t.classList.remove('active'));
+            // 添加active状态到当前标签
+            this.classList.add('active');
+          });
+        });
+
+        // 内容卡片点击事件
+        const contentCards = document.querySelectorAll('.solar-content-card');
+        contentCards.forEach(card => {
+          card.addEventListener('click', function() {
+            console.log('点击了内容卡片:', this.querySelector('.solar-card-title').textContent);
+          });
+        });
+
+        // 关注按钮点击事件
+        const followBtns = document.querySelectorAll('.solar-follow-btn');
+        followBtns.forEach(btn => {
+          btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (this.textContent === '关注') {
+              this.textContent = '已关注';
+              this.style.background = '#6b7280';
+            } else {
+              this.textContent = '关注';
+              this.style.background = '#3b82f6';
+            }
+          });
+        });
+
         // 备用内容加载逻辑
         setTimeout(function() {
           const rootC = document.getElementById('root-c');
@@ -812,5 +1038,6 @@
 
   </body>
 </html>
+
 
 
