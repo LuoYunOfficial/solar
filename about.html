@@ -212,6 +212,85 @@
           grid-template-columns: repeat(2, 1fr);
         }
       }
+	  
+	  /* 语言切换提示框样式 */
+      .language-selector {
+        position: relative;
+        display: inline-block;
+      }
+      
+      .language-dropdown {
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: white;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        padding: 8px 0;
+        min-width: 200px;
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.2s ease-in-out;
+        margin-bottom: 8px;
+      }
+      
+      .language-dropdown.show {
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      .language-option {
+        display: block;
+        padding: 12px 16px;
+        color: #374151;
+        text-decoration: none;
+        font-size: 14px;
+        transition: background-color 0.15s ease;
+        border: none;
+        background: none;
+        width: 100%;
+        text-align: left;
+        cursor: pointer;
+      }
+      
+      .language-option:hover {
+        background-color: #f3f4f6;
+        color: #3b82f6;
+      }
+      
+      .language-option.active {
+        background-color: #eff6ff;
+        color: #3b82f6;
+        font-weight: 500;
+      }
+      
+      .language-trigger {
+        cursor: pointer;
+        position: relative;
+      }
+      
+      .language-trigger:after {
+        content: ' ▼';
+        font-size: 10px;
+        margin-left: 4px;
+        transition: transform 0.2s ease;
+      }
+      
+      .language-trigger.active:after {
+        transform: rotate(180deg);
+      }
+      
+      /* 响应式设计 */
+      @media (max-width: 768px) {
+        .language-dropdown {
+          left: 0;
+          transform: none;
+          min-width: 180px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -293,7 +372,7 @@
         </div>
       </div>
 
-      <div class="about-section about-team">
+      <!--div class="about-section about-team">
         <h2 class="lang" key="MEET_OUR_TEAM">Meet Our Team</h2>
         <p class="lang" key="TEAM_DESC">Our diverse team of creators, engineers, and community builders work tirelessly to make Solar Community the best platform for creative expression.</p>
         
@@ -323,12 +402,12 @@
             <p class="lang" key="COMMUNITY_LEAD_DESC">Fostering connections and ensuring our community thrives.</p>
           </div>
         </div>
-      </div>
+      </div-->
 
       <div class="about-section">
         <h2 class="lang" key="JOIN_OUR_JOURNEY">Join Our Journey</h2>
         <p class="lang" key="JOIN_JOURNEY_DESC">We're just getting started, and we'd love for you to be part of our story. Whether you're a creator looking to share your work, an enthusiast wanting to discover new content, or someone who simply loves being part of a vibrant community, Solar Community welcomes you.</p>
-        <p class="lang" key="JOIN_JOURNEY_CTA">Ready to join us? <a href="https://luoyunofficial.github.io/solar/" class="text-blue-500 hover:text-blue-700 lang" key="GET_STARTED">Get started today</a> and become part of something amazing.</p>
+        <p class="lang" key="JOIN_JOURNEY_CTA">Ready to join us? <a href="https://luoyunofficial.github.io/solar/career" class="text-blue-500 hover:text-blue-700 lang" key="GET_STARTED">Get started today</a> and become part of something amazing.</p>
       </div>
     </main>
 
