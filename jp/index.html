@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="en">
+  <head>
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+    <script>
+	    location.replace("https://luoyunofficial.github.io/solar/not-available")
+    </script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <!--script src="https://luoyunofficial.github.io/solar/assets/region.js"></script-->
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="https://luoyunofficial.github.io/solar/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Solar Community は次世代型コミュニティで、VOCALOID、コスプレ、ゲームなど、あなたの生活を世界中のユーザーと共有できます。趣味を共にする仲間と交流し、作品を発表しましょう——素晴らしいMMD作品やその他のクリエイティブコンテンツを披露するのに最適な場所です！">
+    <meta name="keywords" content="Solar Community,solarcommunity,solar,Solar,Solar community,LuoYun,luoyun,Luoyun,LuoYun Clouder,luoyunclouder,lyclouder">
+    <title>Solar Community (日本)</title>
+    <!--script type="module" crossorigin src="https://luoyunofficial.github.io/solar/assets/index.js"></script-->
+    <script type="module" crossorigin src="https://luoyunofficial.github.io/solar/assets/lang.js"></script>
+    <link rel="stylesheet" crossorigin href="https://luoyunofficial.github.io/solar/assets/index.css">
+    
+    <style>
+      /* 语言切换提示框样式 */
+      .language-selector {
+        position: relative;
+        display: inline-block;
+      }
+      
+      .language-dropdown {
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: white;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        padding: 8px 0;
+        min-width: 200px;
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.2s ease-in-out;
+        margin-bottom: 8px;
+      }
+      
+      .language-dropdown.show {
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      .language-option {
+        display: block;
+        padding: 12px 16px;
+        color: #374151;
+        text-decoration: none;
+        font-size: 14px;
+        transition: background-color 0.15s ease;
+        border: none;
+        background: none;
+        width: 100%;
+        text-align: left;
+        cursor: pointer;
+      }
+      
+      .language-option:hover {
+        background-color: #f3f4f6;
+        color: #3b82f6;
+      }
+      
+      .language-option.active {
+        background-color: #eff6ff;
+        color: #3b82f6;
+        font-weight: 500;
+      }
+      
+      .language-trigger {
+        cursor: pointer;
+        position: relative;
+      }
+      
+      .language-trigger:after {
+        content: ' ▼';
+        font-size: 10px;
+        margin-left: 4px;
+        transition: transform 0.2s ease;
+      }
+      
+      .language-trigger.active:after {
+        transform: rotate(180deg);
+      }
+      
+      /* 响应式设计 */
+      @media (max-width: 768px) {
+        .language-dropdown {
+          left: 0;
+          transform: none;
+          min-width: 180px;
+        }
+      }
+
+      
+      /* 响应式设计 */
+      @media (max-width: 1024px) {
+        .solar-layout {
+          grid-template-columns: 1fr;
+        }
+        
+        .solar-sidebar {
+          order: -1;
+        }
+        
+        .solar-content-grid {
+          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        }
+      }
+
+      @media (max-width: 768px) {
+        .solar-banner-slide {
+          flex-direction: column;
+          text-align: center;
+          gap: 30px;
+        }
+        
+        .solar-banner-content h2 {
+          font-size: 2rem;
+        }
+        
+        .solar-banner-placeholder {
+          width: 300px;
+          height: 200px;
+        }
+        
+        .solar-content-grid {
+          grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+          gap: 16px;
+        }
+        
+        .solar-category-tabs {
+          gap: 16px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .solar-content-grid {
+          grid-template-columns: 1fr;
+        }
+        
+        .solar-banner-content h2 {
+          font-size: 1.8rem;
+        }
+        
+        .solar-banner-placeholder {
+          width: 250px;
+          height: 150px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <script src="https://luoyunofficial.github.io/solar/assets/header.js"></script>
+
+
+
+    <footer class="bg-gray-50 border-t border-gray-200 mt-12">
+      <div class="max-w-7xl mx-auto px-4 py-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div>
+            <h4 class="font-medium text-gray-900 mb-4  lang" key="ABOUT_US">About Us</h4>
+            <ul class="space-y-2 text-sm text-gray-600">
+              <li><a href="https://luoyunofficial.github.io/solar/about" class="hover:text-blue-500  lang" key="ABOUT_SOLAR">About Solar</a></li>
+              <li><a href="https://luoyunofficial.github.io/solar/career" class="hover:text-blue-500 lang" key="JOIN_US">Join Us</a></li>
+              <li><a href="https://luoyunofficial.github.io/solar/privacy" class="hover:text-blue-500 lang" key="PRIVACY_POLICY">Privacy Policy</a></li>
+              <li><a href="https://luoyunofficial.github.io/solar/terms" class="hover:text-blue-500 lang" key="TERMS_OF_SERVICE">Terms of Service</a></li>
+              <li><a href="https://luoyunofficial.github.io/solar/childprotect/policy" class="hover:text-blue-500 lang" key="CHILD_PROTECTION_POLICY">Child Protection Policy</a></li>
+              <li><a href="https://luoyunofficial.github.io/solar/communityrules" class="hover:text-blue-500 lang" key="COMMUNITY_GUIDELINE">Community Guidelines</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-medium text-gray-900 mb-4 lang" key="HELP_CENTER">Help Center</h4>
+            <ul class="space-y-2 text-sm text-gray-600">
+              <li><a href="https://luoyunofficial.github.io/solar/helpcenter" class="hover:text-blue-500 lang" key="HELP_CENTER">Help Center</a></li>
+              <li><a href="https://luoyunofficial.github.io/solar/report" class="hover:text-blue-500 lang" key="REPORT_INFRINGEMENT">Report Infringement</a></li>
+              <li><a href="https://luoyunofficial.github.io/solar/feedback" class="hover:text-blue-500 lang" key="USER_FEEDBACK">User Feedback</a></li>
+              <li><a href="https://luoyunofficial.github.io/solar/helpcenter/copyright" class="hover:text-blue-500 lang" key="COPYRIGHT_PROTECTION_CENTER">Copyright Protection Center</a></li>
+              <li><a href="https://luoyunofficial.github.io/solar/contact" class="hover:text-blue-500 lang" key="CONTACT_US">Contact Us</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-medium text-gray-900 mb-4 lang"  key="MORE">More</h4>
+            <ul class="space-y-2 text-sm text-gray-600">
+              <li><a href="https://luoyunofficial.github.io/" class="hover:text-blue-500">LuoYun</a></li>
+              <li><a href="https://luoyunofficial.github.io/solar/openplatform" class="hover:text-blue-500 lang" key="SOLAR_OPEN_PLATFORM">Solar Open Platform</a></li>
+              <li><a href="https://luoyunofficial.github.io/solar/creator" class="hover:text-blue-500 lang" key="CREATOR_CENTER">Creator Center</a></li>
+              <li><a href="https://luoyunofficial.github.io/solar/childprotect/" class="hover:text-blue-500 lang" key="CHILD_PROTECTION_PLATFORM">Child Protection Platform</a></li>
+              <li><a href="https://luoyunofficial.github.io/solar/developerworks" class="hover:text-blue-500">DeveloperWorks</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-medium text-gray-900 mb-4 lang" key="DOWNLOAD_APP">Download Apps</h4>
+            <ul class="space-y-2 text-sm text-gray-600">
+              <li><a href="#" class="hover:text-blue-500">iPhone</a></li>
+              <li><a href="#" class="hover:text-blue-500">Android</a></li>
+              <li><a href="#" class="hover:text-blue-500">iPad HD</a></li>
+              <li><a href="#" class="hover:text-blue-500">Windows</a></li>
+              <li><a href="#" class="hover:text-blue-500">macOS</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="border-t border-gray-200 mt-8 pt-8 text-center text-sm text-gray-500">
+          <p>© 2025 Solar Community. All rights reserved.</p><br/>
+		  <!--a href="#" class="hover:text-blue-500">渝ICP备案号</a> | <a href="#" class="hover:text-blue-500">渝公安网备案号</a> | --><a href="https://luoyunofficial.github.io/solar/ccr" class="hover:text-blue-500 lang" key="CURRENT_REGION">日本</a> | 
+		  
+		  <!-- 语言切换器 -->
+		  <div class="language-selector">
+		    <a href="#" class="hover:text-blue-500 lang language-trigger" key="CURRENT_LANGUAGE" id="language-trigger">Language：English (US)</a>
+		    
+		    <div class="language-dropdown" id="language-dropdown">
+		      <a href="#" class="language-option translate active" id="en">English (US)</a>
+		      <a href="#" class="language-option translate" id="zh">简体中文</a>
+		      <a href="#" class="language-option translate" id="zh_tw">繁體中文</a>
+		      <a href="#" class="language-option translate" id="ja">日本語</a>
+		      <a href="#" class="language-option translate" id="ko">한국어</a>
+		    </div>
+		  </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // 语言切换功能
+      document.addEventListener('DOMContentLoaded', function() {
+        const trigger = document.getElementById('language-trigger');
+        const dropdown = document.getElementById('language-dropdown');
+        const options = dropdown.querySelectorAll('.language-option');
+        
+        // 切换下拉菜单显示/隐藏
+        trigger.addEventListener('click', function(e) {
+          e.preventDefault();
+          dropdown.classList.toggle('show');
+          trigger.classList.toggle('active');
+        });
+        
+        // 点击语言选项
+        options.forEach(option => {
+          option.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // 移除所有active状态
+            options.forEach(opt => opt.classList.remove('active'));
+            
+            // 添加active状态到当前选项
+            this.classList.add('active');
+            
+            // 更新触发器文本
+            const languageText = this.textContent;
+            trigger.textContent = 'Language：' + languageText;
+            
+            // 隐藏下拉菜单
+            dropdown.classList.remove('show');
+            trigger.classList.remove('active');
+            
+            // 这里可以添加实际的语言切换逻辑
+            console.log('Selected language:', this.id);
+          });
+        });
+        
+        // 点击外部区域关闭下拉菜单
+        document.addEventListener('click', function(e) {
+          if (!trigger.contains(e.target) && !dropdown.contains(e.target)) {
+            dropdown.classList.remove('show');
+            trigger.classList.remove('active');
+          }
+        });
+
+        // 轮播功能
+        const slides = document.querySelectorAll('.solar-banner-slide');
+        const indicators = document.querySelectorAll('.solar-banner-indicators span');
+        const prevBtn = document.querySelector('.solar-banner-prev');
+        const nextBtn = document.querySelector('.solar-banner-next');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+          // 隐藏所有幻灯片
+          slides.forEach(slide => slide.classList.remove('active'));
+          indicators.forEach(indicator => indicator.classList.remove('active'));
+          
+          // 显示当前幻灯片
+          slides[index].classList.add('active');
+          indicators[index].classList.add('active');
+        }
+
+        function nextSlide() {
+          currentSlide = (currentSlide + 1) % slides.length;
+          showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+          currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+          showSlide(currentSlide);
+        }
+
+        // 绑定事件
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+
+        // 指示器点击事件
+        indicators.forEach((indicator, index) => {
+          indicator.addEventListener('click', () => {
+            currentSlide = index;
+            showSlide(currentSlide);
+          });
+        });
+
+        // 自动播放
+        setInterval(nextSlide, 5000);
+
+        // 自定义滑动条功能
+        const categoryTabs = document.getElementById('categoryTabs');
+        const scrollbarThumb = document.getElementById('scrollbarThumb');
+        const scrollbarTrack = scrollbarThumb.parentElement;
+        
+        let isDragging = false;
+        let startX = 0;
+        let startScrollLeft = 0;
+        let thumbStartX = 0;
+
+        // 初始化滑动条
+        function initScrollbar() {
+          updateScrollbarThumb();
+          
+          // 监听标签容器滚动事件
+          categoryTabs.addEventListener('scroll', updateScrollbarThumb);
+          
+          // 监听窗口大小变化
+          window.addEventListener('resize', updateScrollbarThumb);
+        }
+
+        // 更新滑动条拇指位置和大小
+        function updateScrollbarThumb() {
+          const containerWidth = categoryTabs.clientWidth;
+          const contentWidth = categoryTabs.scrollWidth;
+          const scrollLeft = categoryTabs.scrollLeft;
+          
+          // 如果内容不需要滚动，隐藏滑动条
+          if (contentWidth <= containerWidth) {
+            scrollbarTrack.parentElement.style.display = 'none';
+            return;
+          } else {
+            scrollbarTrack.parentElement.style.display = 'block';
+          }
+          
+          // 计算拇指宽度（按比例）
+          const thumbWidth = Math.max((containerWidth / contentWidth) * containerWidth, 40);
+          
+          // 计算拇指位置
+          const maxThumbLeft = containerWidth - thumbWidth;
+          const thumbLeft = (scrollLeft / (contentWidth - containerWidth)) * maxThumbLeft;
+          
+          // 应用样式
+          scrollbarThumb.style.width = thumbWidth + 'px';
+          scrollbarThumb.style.left = thumbLeft + 'px';
+        }
+
+        // 拇指拖拽事件
+        scrollbarThumb.addEventListener('mousedown', function(e) {
+          isDragging = true;
+          startX = e.clientX;
+          thumbStartX = parseInt(scrollbarThumb.style.left) || 0;
+          startScrollLeft = categoryTabs.scrollLeft;
+          
+          scrollbarThumb.classList.add('dragging');
+          document.body.style.userSelect = 'none'; // 防止文本选择
+          
+          e.preventDefault();
+        });
+
+        // 轨道点击事件
+        scrollbarTrack.addEventListener('click', function(e) {
+          if (e.target === scrollbarThumb) return;
+          
+          const trackRect = scrollbarTrack.getBoundingClientRect();
+          const clickX = e.clientX - trackRect.left;
+          const thumbWidth = scrollbarThumb.offsetWidth;
+          const newThumbLeft = Math.max(0, Math.min(clickX - thumbWidth / 2, trackRect.width - thumbWidth));
+          
+          // 计算对应的滚动位置
+          const containerWidth = categoryTabs.clientWidth;
+          const contentWidth = categoryTabs.scrollWidth;
+          const maxThumbLeft = containerWidth - thumbWidth;
+          const scrollRatio = newThumbLeft / maxThumbLeft;
+          const newScrollLeft = scrollRatio * (contentWidth - containerWidth);
+          
+          categoryTabs.scrollLeft = newScrollLeft;
+        });
+
+        // 全局鼠标移动事件
+        document.addEventListener('mousemove', function(e) {
+          if (!isDragging) return;
+          
+          const deltaX = e.clientX - startX;
+          const containerWidth = categoryTabs.clientWidth;
+          const contentWidth = categoryTabs.scrollWidth;
+          const thumbWidth = scrollbarThumb.offsetWidth;
+          const maxThumbLeft = containerWidth - thumbWidth;
+          
+          // 计算新的拇指位置
+          const newThumbLeft = Math.max(0, Math.min(thumbStartX + deltaX, maxThumbLeft));
+          
+          // 计算对应的滚动位置
+          const scrollRatio = newThumbLeft / maxThumbLeft;
+          const newScrollLeft = scrollRatio * (contentWidth - containerWidth);
+          
+          categoryTabs.scrollLeft = newScrollLeft;
+          
+          e.preventDefault();
+        });
+
+        // 全局鼠标释放事件
+        document.addEventListener('mouseup', function() {
+          if (isDragging) {
+            isDragging = false;
+            scrollbarThumb.classList.remove('dragging');
+            document.body.style.userSelect = '';
+          }
+        });
+
+        // 触摸事件支持（移动端）
+        scrollbarThumb.addEventListener('touchstart', function(e) {
+          isDragging = true;
+          const touch = e.touches[0];
+          startX = touch.clientX;
+          thumbStartX = parseInt(scrollbarThumb.style.left) || 0;
+          startScrollLeft = categoryTabs.scrollLeft;
+          
+          scrollbarThumb.classList.add('dragging');
+          e.preventDefault();
+        });
+
+        document.addEventListener('touchmove', function(e) {
+          if (!isDragging) return;
+          
+          const touch = e.touches[0];
+          const deltaX = touch.clientX - startX;
+          const containerWidth = categoryTabs.clientWidth;
+          const contentWidth = categoryTabs.scrollWidth;
+          const thumbWidth = scrollbarThumb.offsetWidth;
+          const maxThumbLeft = containerWidth - thumbWidth;
+          
+          const newThumbLeft = Math.max(0, Math.min(thumbStartX + deltaX, maxThumbLeft));
+          const scrollRatio = newThumbLeft / maxThumbLeft;
+          const newScrollLeft = scrollRatio * (contentWidth - containerWidth);
+          
+          categoryTabs.scrollLeft = newScrollLeft;
+          e.preventDefault();
+        });
+
+        document.addEventListener('touchend', function() {
+          if (isDragging) {
+            isDragging = false;
+            scrollbarThumb.classList.remove('dragging');
+          }
+        });
+
+        // 初始化滑动条
+        initScrollbar();
+
+        // 分类标签切换功能
+        const categoryTabButtons = document.querySelectorAll('.solar-category-tab');
+        categoryTabButtons.forEach(tab => {
+          tab.addEventListener('click', function() {
+            // 移除所有active状态
+            categoryTabButtons.forEach(t => t.classList.remove('active'));
+            // 添加active状态到当前标签
+            this.classList.add('active');
+          });
+        });
+
+        // 内容卡片点击事件
+        const contentCards = document.querySelectorAll('.solar-content-card');
+        contentCards.forEach(card => {
+          card.addEventListener('click', function() {
+            console.log('点击了内容卡片:', this.querySelector('.solar-card-title').textContent);
+          });
+        });
+
+        // 关注按钮点击事件
+        const followBtns = document.querySelectorAll('.solar-follow-btn');
+        followBtns.forEach(btn => {
+          btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (this.textContent === '关注') {
+              this.textContent = '已关注';
+              this.style.background = '#6b7280';
+            } else {
+              this.textContent = '关注';
+              this.style.background = '#3b82f6';
+            }
+          });
+        });
+
+        // 备用内容加载逻辑
+        setTimeout(function() {
+          const rootC = document.getElementById('root-c');
+          const placeholder = rootC.querySelector('.content-placeholder');
+          
+          // 检查外部脚本是否成功加载了内容
+          if (placeholder && rootC.children.length === 1) {
+            // 如果外部脚本没有加载内容，显示备用内容
+            rootC.innerHTML = `
+              <div class="main-content">
+                <div style="text-align: center; padding: 3rem; background: white; border-radius: 8px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
+                  <h2 style="color: #1f2937; margin-bottom: 1rem;">欢迎来到 Solar Community</h2>
+                  <p style="color: #6b7280; margin-bottom: 2rem;">外部脚本暂时无法加载，这是备用内容显示。</p>
+                  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                    <div style="padding: 1.5rem; background: #f3f4f6; border-radius: 8px;">
+                      <h3 style="color: #374151; margin-bottom: 0.5rem;">主页</h3>
+                      <p style="color: #6b7280; font-size: 0.9rem;">浏览最新的社区内容</p>
+                    </div>
+                    <div style="padding: 1.5rem; background: #f3f4f6; border-radius: 8px;">
+                      <h3 style="color: #374151; margin-bottom: 0.5rem;">短视频</h3>
+                      <p style="color: #6b7280; font-size: 0.9rem;">观看精彩的短视频内容</p>
+                    </div>
+                    <div style="padding: 1.5rem; background: #f3f4f6; border-radius: 8px;">
+                      <h3 style="color: #374151; margin-bottom: 0.5rem;">热门</h3>
+                      <p style="color: #6b7280; font-size: 0.9rem;">发现热门话题和内容</p>
+                    </div>
+                    <div style="padding: 1.5rem; background: #f3f4f6; border-radius: 8px;">
+                      <h3 style="color: #374151; margin-bottom: 0.5rem;">游戏中心</h3>
+                      <p style="color: #6b7280; font-size: 0.9rem;">体验各种有趣的游戏</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            `;
+          }
+        }, 3000); // 等待3秒后检查是否需要显示备用内容
+      });
+    </script>
+
+  </body>
+</html>
+
