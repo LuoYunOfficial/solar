@@ -266,10 +266,10 @@ var arrLang = {
       "JOIN_OUR_JOURNEY": "私たちの旅に参加しよう",
       "JOIN_JOURNEY_DESC": "私たちはまだ始まったばかりです。あなたが私たちの物語の一部になってくれることを願っています。作品を共有したいクリエイター、新しいコンテンツを発見したい愛好家、または活気あるコミュニティの一員であることが好きな人であれば、Solar Communityはあなたを歓迎します。",
       "JOIN_JOURNEY_CTA": "参加する準備はできましたか？今すぐ始めて、素晴らしいものの一部になりましょう。",
-    "CONTENT_AVAILABLE_MORE": "このプライバシーポリシーは全世界のユーザー向けに設計されています。",
-      "CONTENT_AVAILABLE_REGION": "中国または日本のユーザーの方は、こちらをご覧ください：",
-      "CHOOSING_CN": "中国版",
-      "CHOOSING_JP": "日本版",
+    "CONTENT_AVAILABLE_MORE": "このコンテンツは<strong>全世界</strong>のユーザー向けに設計されています。",
+      "CONTENT_AVAILABLE_REGION": "中国または日本のユーザーはこちらをお読みください：",
+      "CHOOSING_CN": "中国",
+      "CHOOSING_JP": "日本",
   },
   "ko": {
     "HOME": "홈",
@@ -334,10 +334,10 @@ var arrLang = {
       "JOIN_OUR_JOURNEY": "우리의 여정에 참여하세요",
       "JOIN_JOURNEY_DESC": "우리는 이제 막 시작했으며 여러분이 우리 이야기의 일부가 되길 바랍니다. 작품을 공유하고 싶은 크리에이터, 새로운 콘텐츠를 발견하고 싶은 애호가 또는 활기찬 커뮤니티의 일원이 되는 것을 좋아하는 사람이든, Solar Community는 여러분을 환영합니다.",
       "JOIN_JOURNEY_CTA": "참여할 준비가 되셨나요? 지금 시작하고 놀라운 것의 일부가 되세요.",
-    "CONTENT_AVAILABLE_MORE": "이 개인정보 보호정책은 전 세계 사용자를 위해 설계되었습니다.",
-      "CONTENT_AVAILABLE_REGION": "중국 또는 일본 사용자인 경우 다음 버전을 읽어주세요:",
-      "CHOOSING_CN": "중국판",
-      "CHOOSING_JP": "일본판",
+    "CONTENT_AVAILABLE_MORE": "이 콘텐츠는 <strong>전 세계</strong> 사용자를 위해 설계되었습니다.",
+      "CONTENT_AVAILABLE_REGION": "중국 또는 일본 사용자는 다음을 읽어주세요:",
+      "CHOOSING_CN": "중국",
+      "CHOOSING_JP": "일본",
   }
 };
 
