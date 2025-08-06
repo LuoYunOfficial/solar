@@ -24,6 +24,10 @@ var arrLang = {
     "CHILD_PROTECTION_PLATFORM": "Child Protection Platform",
     "DOWNLOAD_APP": "Download Apps",
     "CURRENT_LANGUAGE": "Language：English (US)",
+    "ERROR_404_TITLE": "Page Not Found",
+    "ERROR_404_DESCRIPTION": "Sorry, the page you are looking for doesn't exist or has been moved. Please check the URL or return to the homepage.",
+    "GO_TO_HOMEPAGE": "Go to Homepage",
+    "GO_BACK": "Go Back",
   },
   "zh": {
     "HOME": "首页",
@@ -50,6 +54,10 @@ var arrLang = {
     "CHILD_PROTECTION_PLATFORM": "未成年人保护平台",
     "DOWNLOAD_APP": "下载App",
     "CURRENT_LANGUAGE": "Language：简体中文",
+    "ERROR_404_TITLE": "页面不存在",
+    "ERROR_404_DESCRIPTION": "抱歉，您访问的页面不存在或已被移动。请检查网址或返回首页。",
+    "GO_TO_HOMEPAGE": "返回首页",
+    "GO_BACK": "上一页",
   },
   "zh_tw": {
     "HOME": "首頁",
@@ -75,7 +83,11 @@ var arrLang = {
     "CREATOR_CENTER": "創作者中心",
     "CHILD_PROTECTION_PLATFORM": "未成年人保護平台",
     "DOWNLOAD_APP": "下載App",
-    "CURRENT_LANGUAGE": "Language：繁體中文"
+    "CURRENT_LANGUAGE": "Language：繁體中文",
+    "ERROR_404_TITLE": "頁面不存在",
+    "ERROR_404_DESCRIPTION": "抱歉，您訪問的頁面不存在或已被移動。請檢查網址或返回首頁。",
+    "GO_TO_HOMEPAGE": "返回首頁",
+    "GO_BACK": "上一頁",
   },
   "ja": {
     "HOME": "ホーム",
@@ -101,7 +113,11 @@ var arrLang = {
     "CREATOR_CENTER": "クリエイターセンター",
     "CHILD_PROTECTION_PLATFORM": "未成年者保護プラットフォーム",
     "DOWNLOAD_APP": "アプリをダウンロード",
-    "CURRENT_LANGUAGE": "Language：日本語"
+    "CURRENT_LANGUAGE": "Language：日本語",
+    "ERROR_404_TITLE": "ページが見つかりません",
+    "ERROR_404_DESCRIPTION": "申し訳ありませんが、お探しのページは存在しないか移動しました。URLを確認するか、ホームページに戻ってください。",
+    "GO_TO_HOMEPAGE": "トップページに戻る",
+    "GO_BACK": "戻る",
   },
   "ko": {
     "HOME": "홈",
@@ -127,7 +143,11 @@ var arrLang = {
     "CREATOR_CENTER": "크리에이터 센터",
     "CHILD_PROTECTION_PLATFORM": "청소년 보호 플랫폼",
     "DOWNLOAD_APP": "앱 다운로드",
-    "CURRENT_LANGUAGE": "Language: 한국어"
+    "CURRENT_LANGUAGE": "Language: 한국어",
+    "ERROR_404_TITLE": "페이지 없음",
+    "ERROR_404_DESCRIPTION": "죄송합니다. 찾으시는 페이지가 존재하지 않거나 이동되었습니다. URL을 확인하거나 홈페이지로 돌아가 주세요.",
+    "GO_TO_HOMEPAGE": "홈페이지로 이동",
+    "GO_BACK": "뒤로 가기",
   }
 };
 
