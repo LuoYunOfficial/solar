@@ -62,7 +62,7 @@ var arrLang = {
     "JOIN_OUR_JOURNEY": "Join Our Journey",
     "JOIN_JOURNEY_DESC": "We're just getting started, and we'd love for you to be part of our story. Whether you're a creator looking to share your work, an enthusiast wanting to discover new content, or someone who simply loves being part of a vibrant community, Solar Community welcomes you.",
     "JOIN_JOURNEY_CTA": "Ready to join us? Get started today and become part of something amazing.",
-    "TERMS_AVAILABLE_MORE": "This privacy policy is designed for <strong>worldwide</strong> users.",
+    "TERMS_AVAILABLE_MORE": "This content is designed for <strong>worldwide</strong> users.",
     "TERMS_AVAILABLE_REGION": "If you're CN users or JP users, please read there: ",
     "CHOOSING_CN": "CN",
     "CHOOSING_JP": "JP",
@@ -130,10 +130,10 @@ var arrLang = {
       "JOIN_OUR_JOURNEY": "加入我们的旅程",
       "JOIN_JOURNEY_DESC": "我们才刚刚开始，我们很希望您成为我们故事的一部分。无论您是想要分享作品的创作者、希望发现新内容的爱好者，还是单纯喜欢成为充满活力社区一员的人，Solar Community都欢迎您。",
       "JOIN_JOURNEY_CTA": "准备好加入我们了吗？立即开始，成为这美好事物的一部分。",
-    "TERMS_AVAILABLE_MORE": "本隐私政策面向<strong>全球</strong>用户设计。",
-      "TERMS_AVAILABLE_REGION": "如果您是中国或日本用户，请阅读以下版本：",
-      "CHOOSING_CN": "中国版",
-      "CHOOSING_JP": "日本版",
+    "TERMS_AVAILABLE_MORE": "本内容面向<strong>全球</strong>用户设计。",
+      "TERMS_AVAILABLE_REGION": "中国大陆或日本用户请阅读：",
+      "CHOOSING_CN": "中国大陆",
+      "CHOOSING_JP": "日本",
   },
   "zh_tw": {
     "HOME": "首頁",
@@ -199,10 +199,10 @@ var arrLang = {
       "JOIN_JOURNEY_DESC": "我們才剛剛開始，我們很希望您成為我們故事的一部分。無論您是想要分享作品的創作者、希望發現新內容的愛好者，還是單純喜歡成為充滿活力社區一員的人，Solar Community都歡迎您。",
       "JOIN_JOURNEY_CTA": "準備好加入我們了嗎？立即開始，成為這美好事物的一部分。",
     "traditional_chinese": {
-      "TERMS_AVAILABLE_MORE": "本隱私政策面向<strong>全球</strong>用戶設計。",
-      "TERMS_AVAILABLE_REGION": "如果您是中國或日本用戶，請閱讀以下版本：",
-      "CHOOSING_CN": "中國版",
-      "CHOOSING_JP": "日本版",
+      "TERMS_AVAILABLE_MORE": "本內容面向<strong>全球</strong>用戶設計。",
+      "TERMS_AVAILABLE_REGION": "中國大陸或日本用戶請閱讀：",
+      "CHOOSING_CN": "中國大陸",
+      "CHOOSING_JP": "日本",
     },
   },
   "ja": {
@@ -272,6 +272,10 @@ var arrLang = {
       "TERMS_AVAILABLE_REGION": "中国または日本のユーザーの方は、こちらをご覧ください：",
       "CHOOSING_CN": "中国版",
       "CHOOSING_JP": "日本版",
+    "TERMS_AVAILABLE_MORE": "このコンテンツは<strong>全世界</strong>のユーザー向けに設計されています。",
+      "TERMS_AVAILABLE_REGION": "中国または日本のユーザーはこちらをお読みください：",
+      "CHOOSING_CN": "中国",
+      "CHOOSING_JP": "日本",
   },
   "ko": {
     "HOME": "홈",
@@ -340,6 +344,10 @@ var arrLang = {
       "TERMS_AVAILABLE_REGION": "중국 또는 일본 사용자인 경우 다음 버전을 읽어주세요:",
       "CHOOSING_CN": "중국판",
       "CHOOSING_JP": "일본판",
+    "TERMS_AVAILABLE_MORE": "이 콘텐츠는 <strong>전 세계</strong> 사용자를 위해 설계되었습니다.",
+      "TERMS_AVAILABLE_REGION": "중국 또는 일본 사용자는 다음을 읽어주세요:",
+      "CHOOSING_CN": "중국",
+      "CHOOSING_JP": "일본",
   }
 };
 
