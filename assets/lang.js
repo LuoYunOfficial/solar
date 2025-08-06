@@ -271,10 +271,6 @@ var arrLang = {
       "CONTENT_AVAILABLE_REGION": "中国または日本のユーザーの方は、こちらをご覧ください：",
       "CHOOSING_CN": "中国版",
       "CHOOSING_JP": "日本版",
-    "CONTENT_AVAILABLE_MORE": "このコンテンツは全世界のユーザー向けに設計されています。",
-      "CONTENT_AVAILABLE_REGION": "中国または日本のユーザーはこちらをお読みください：",
-      "CHOOSING_CN": "中国",
-      "CHOOSING_JP": "日本",
   },
   "ko": {
     "HOME": "홈",
@@ -343,10 +339,6 @@ var arrLang = {
       "CONTENT_AVAILABLE_REGION": "중국 또는 일본 사용자인 경우 다음 버전을 읽어주세요:",
       "CHOOSING_CN": "중국판",
       "CHOOSING_JP": "일본판",
-    "CONTENT_AVAILABLE_MORE": "이 콘텐츠는 전 세계 사용자를 위해 설계되었습니다.",
-      "CONTENT_AVAILABLE_REGION": "중국 또는 일본 사용자는 다음을 읽어주세요:",
-      "CHOOSING_CN": "중국",
-      "CHOOSING_JP": "일본",
   }
 };
 
