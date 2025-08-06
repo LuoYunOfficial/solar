@@ -198,7 +198,6 @@ var arrLang = {
       "JOIN_OUR_JOURNEY": "加入我們的旅程",
       "JOIN_JOURNEY_DESC": "我們才剛剛開始，我們很希望您成為我們故事的一部分。無論您是想要分享作品的創作者、希望發現新內容的愛好者，還是單純喜歡成為充滿活力社區一員的人，Solar Community都歡迎您。",
       "JOIN_JOURNEY_CTA": "準備好加入我們了嗎？立即開始，成為這美好事物的一部分。",
-    "traditional_chinese": {
       "CONTENT_AVAILABLE_MORE": "本內容面向全球用戶設計。",
       "CONTENT_AVAILABLE_REGION": "中國大陸或日本用戶請閱讀：",
       "CHOOSING_CN": "中國大陸",
