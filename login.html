@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="https://luoyunofficial.github.io/solar/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Login to Solar Community - Connect with users worldwide and share your interests">
+    <meta name="keywords" content="Solar Community,login,sign in,solar,Solar,Solar community">
+    <title class="lang" key="LOGIN_PAGE_TITLE">Login - Solar Community</title>
+    
+    <script type="module" crossorigin src="https://luoyunofficial.github.io/solar/assets/lang.js"></script>
+    <script type="module" crossorigin src="https://luoyunofficial.github.io/solar/assets/user/userdata.js"></script>
+    <link rel="stylesheet" crossorigin href="https://luoyunofficial.github.io/solar/assets/index.css">
+    <link rel="stylesheet" crossorigin href="https://luoyunofficial.github.io/solar/assets/common.css">
+    
+    <style>
+      body {
+        background-image: url('https://luoyunofficial.github.io/solar/assets/user/login-image.png');
+        min-height: 100vh;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .login-container {
+        width: 100%;
+        max-width: 600px;
+        padding: 1rem;
+      }
+      
+      .login-header {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+      
+      .login-logo {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: gray;
+        margin-bottom: 0.5rem;
+      }
+      
+      .login-subtitle {
+        color: gray;
+        font-size: 1.1rem;
+      }
+      
+      .solar-form {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      
+      .login-error {
+        background-color: #fef2f2;
+        border: 1px solid #fecaca;
+        color: #dc2626;
+        padding: 0.75rem;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        font-size: 0.875rem;
+        display: none;
+      }
+      
+      .login-success {
+        background-color: #f0fdf4;
+        border: 1px solid #bbf7d0;
+        color: #059669;
+        padding: 0.75rem;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        font-size: 0.875rem;
+        display: none;
+      }
+      
+      /* 语言切换提示框样式 */
+      .language-selector {
+        position: relative;
+        display: inline-block;
+      }
+      
+      .language-dropdown {
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: white;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        padding: 8px 0;
+        min-width: 200px;
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.2s ease-in-out;
+        margin-bottom: 8px;
+      }
+      
+      .language-dropdown.show {
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      .language-option {
+        display: block;
+        padding: 12px 16px;
+        color: #374151;
+        text-decoration: none;
+        font-size: 14px;
+        transition: background-color 0.15s ease;
+        border: none;
+        background: none;
+        width: 100%;
+        text-align: left;
+        cursor: pointer;
+      }
+      
+      .language-option:hover {
+        background-color: #f3f4f6;
+        color: #3b82f6;
+      }
+      
+      .language-option.active {
+        background-color: #eff6ff;
+        color: #3b82f6;
+        font-weight: 500;
+      }
+      
+      .language-trigger {
+        cursor: pointer;
+        position: relative;
+      }
+      
+      .language-trigger:after {
+        content: ' ▼';
+        font-size: 10px;
+        margin-left: 4px;
+        transition: transform 0.2s ease;
+      }
+      
+      .language-trigger.active:after {
+        transform: rotate(180deg);
+      }
+      
+      /* 响应式设计 */
+      @media (max-width: 768px) {
+        .language-dropdown {
+          left: 0;
+          transform: none;
+          min-width: 180px;
+        }
+      }
+    </style>
+  </head>
+  
+
+  <body>
+
+    <script src="https://luoyunofficial.github.io/solar/assets/header.js"></script>
+
+    <div class="login-container">
+      <div class="login-header">
+        <div class="login-logo">Solar Community</div>
+        <div class="login-subtitle lang" key="LOGIN_DESC">Welcome back! Please sign in to your account</div>
+      </div>
+      
+      <form class="solar-form" id="loginForm">
+        <h2 class="solar-form-title lang" key="LOGIN">Login</h2>
+        
+        <div class="login-error" id="loginError"></div>
+        <div class="login-success" id="loginSuccess"></div>
+        
+        <div class="solar-form-group">
+          <label for="username" class="solar-form-label lang" key="USERNAME">Username</label>
+          <input 
+            type="text" 
+            id="username" 
+            name="username" 
+            class="solar-form-input" 
+            required
+            autocomplete="username"
+          >
+        </div>
+        
+        <div class="solar-form-group">
+          <label for="password" class="solar-form-label lang" key="PASSWORD">Password</label>
+          <input 
+            type="password" 
+            id="password" 
+            name="password" 
+            class="solar-form-input" 
+            required
+            autocomplete="current-password"
+          >
+        </div>
+        
+        <button type="submit" class="solar-btn solar-btn-primary solar-btn-full lang" key="LOGIN_BUTTON">Sign In</button>
+        
+        <a href="register.html" class="solar-form-link lang" key="REGISTER_LINK">Don't have an account? Register</a>
+      </form>
+    </div>
+	
+	<footer class="bg-gray-50 border-t border-gray-200 mt-12">
+      <div class="max-w-7xl mx-auto px-4 py-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div>
+            <h4 class="font-medium text-gray-900 mb-4  lang" key="ABOUT_US">About Us</h4>
+            <ul class="space-y-2 text-sm text-gray-600">
+              <li><a href="https://luoyunofficial.github.io/solar/about" class="hover:text-blue-500  lang" key="ABOUT_SOLAR">About Solar</a></li>
+              <li><a href="https://luoyunofficial.github.io/solar/career" class="hover:text-blue-500 lang" key="JOIN_US">Join Us</a></li>
+              <li><a href="https://luoyunofficial.github.io/solar/privacy" class="hover:text-blue-500 lang" key="PRIVACY_POLICY">Privacy Policy</a></li>
+              <li><a href="https://luoyunofficial.github.io/solar/terms" class="hover:text-blue-500 lang" key="TERMS_OF_SERVICE">Terms of Service</a></li>
+              <li><a href="https://luoyunofficial.github.io/solar/childprotect/policy" class="hover:text-blue-500 lang" key="CHILD_PROTECTION_POLICY">Child Protection Policy</a></li>
+              <li><a href="https://luoyunofficial.github.io/solar/communityrules" class="hover:text-blue-500 lang" key="COMMUNITY_GUIDELINE">Community Guidelines</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-medium text-gray-900 mb-4 lang" key="HELP_CENTER">Help Center</h4>
+            <ul class="space-y-2 text-sm text-gray-600">
+              <li><a href="https://luoyunofficial.github.io/solar/helpcenter" class="hover:text-blue-500 lang" key="HELP_CENTER">Help Center</a></li>
+              <li><a href="https://luoyunofficial.github.io/solar/report" class="hover:text-blue-500 lang" key="REPORT_INFRINGEMENT">Report Infringement</a></li>
+              <li><a href="https://luoyunofficial.github.io/solar/feedback" class="hover:text-blue-500 lang" key="USER_FEEDBACK">User Feedback</a></li>
+              <li><a href="https://luoyunofficial.github.io/solar/helpcenter/copyright" class="hover:text-blue-500 lang" key="COPYRIGHT_PROTECTION_CENTER">Copyright Protection Center</a></li>
+              <li><a href="https://luoyunofficial.github.io/solar/contact" class="hover:text-blue-500 lang" key="CONTACT_US">Contact Us</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-medium text-gray-900 mb-4 lang"  key="MORE">More</h4>
+            <ul class="space-y-2 text-sm text-gray-600">
+              <li><a href="https://luoyunofficial.github.io/" class="hover:text-blue-500">LuoYun</a></li>
+              <li><a href="https://luoyunofficial.github.io/solar/openplatform" class="hover:text-blue-500 lang" key="SOLAR_OPEN_PLATFORM">Solar Open Platform</a></li>
+              <li><a href="https://luoyunofficial.github.io/solar/creator" class="hover:text-blue-500 lang" key="CREATOR_CENTER">Creator Center</a></li>
+              <li><a href="https://luoyunofficial.github.io/solar/childprotect/" class="hover:text-blue-500 lang" key="CHILD_PROTECTION_PLATFORM">Child Protection Platform</a></li>
+              <li><a href="https://luoyunofficial.github.io/solar/developerworks" class="hover:text-blue-500">DeveloperWorks</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-medium text-gray-900 mb-4 lang" key="DOWNLOAD_APP">Download Apps</h4>
+            <ul class="space-y-2 text-sm text-gray-600">
+              <li><a href="#" class="hover:text-blue-500">iPhone</a></li>
+              <li><a href="#" class="hover:text-blue-500">Android</a></li>
+              <li><a href="#" class="hover:text-blue-500">iPad HD</a></li>
+              <li><a href="#" class="hover:text-blue-500">Windows</a></li>
+              <li><a href="#" class="hover:text-blue-500">macOS</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="border-t border-gray-200 mt-8 pt-8 text-center text-sm text-gray-500">
+          <p>© 2025 Solar Community. All rights reserved.</p><br/>
+		  <!--a href="#" class="hover:text-blue-500">渝ICP备案号</a> | <a href="#" class="hover:text-blue-500">渝公安网备案号</a> | --><a href="https://luoyunofficial.github.io/solar/ccr" class="hover:text-blue-500 lang" key="CURRENT_REGION">Country or Region: Worldwide</a> | 
+		  
+		  <!-- 语言切换器 -->
+		  <div class="language-selector">
+		    <a href="#" class="hover:text-blue-500 lang language-trigger" key="CURRENT_LANGUAGE" id="language-trigger">Language：English (US)</a>
+		    
+		    <div class="language-dropdown" id="language-dropdown">
+		      <a href="#" class="language-option translate active" id="en">English (US)</a>
+		      <a href="#" class="language-option translate" id="zh">简体中文</a>
+		      <a href="#" class="language-option translate" id="zh_tw">繁體中文</a>
+		      <a href="#" class="language-option translate" id="ja">日本語</a>
+		      <a href="#" class="language-option translate" id="ko">한국어</a>
+		    </div>
+		  </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Language switching functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        const trigger = document.getElementById('language-trigger');
+        const dropdown = document.getElementById('language-dropdown');
+        const options = dropdown.querySelectorAll('.language-option');
+        
+        // Toggle dropdown
+        trigger.addEventListener('click', function(e) {
+          e.preventDefault();
+          dropdown.classList.toggle('show');
+          trigger.classList.toggle('active');
+        });
+        
+        // Language option click
+        options.forEach(option => {
+          option.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Remove all active states
+            options.forEach(opt => opt.classList.remove('active'));
+            
+            // Add active state to current option
+            this.classList.add('active');
+            
+            // Update language
+            window.langManager.setLanguage(this.id);
+            
+            // Update trigger text
+            const languageTexts = {
+              'en': 'Language：English (US)',
+              'zh': '语言：简体中文',
+              'zh_tw': '語言：繁體中文',
+              'ja': '言語：日本語',
+              'ko': '언어：한국어'
+            };
+            trigger.textContent = languageTexts[this.id] || languageTexts['en'];
+            
+            // Hide dropdown
+            dropdown.classList.remove('show');
+            trigger.classList.remove('active');
+          });
+        });
+        
+        // Click outside to close
+        document.addEventListener('click', function(e) {
+          if (!trigger.contains(e.target) && !dropdown.contains(e.target)) {
+            dropdown.classList.remove('show');
+            trigger.classList.remove('active');
+          }
+        });
+
+        // Login form functionality
+        const loginForm = document.getElementById('loginForm');
+        const loginError = document.getElementById('loginError');
+        const loginSuccess = document.getElementById('loginSuccess');
+        
+        loginForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          const username = document.getElementById('username').value;
+          const password = document.getElementById('password').value;
+          
+          // Hide previous messages
+          loginError.style.display = 'none';
+          loginSuccess.style.display = 'none';
+          
+          // Attempt login
+          const user = window.userDataManager.login(username, password);
+          
+          if (user) {
+            loginSuccess.textContent = window.langManager.getText('SUCCESS') + '! Redirecting...';
+            loginSuccess.style.display = 'block';
+            
+            // Redirect to profile page after short delay
+            setTimeout(() => {
+              window.location.href = `profile.html?id=${user.id}`;
+            }, 1500);
+          } else {
+            loginError.textContent = window.langManager.getText('LOGIN_ERROR');
+            loginError.style.display = 'block';
+          }
+        });
+        
+        // Check if already logged in
+        if (window.userDataManager.isLoggedIn()) {
+          const currentUser = window.userDataManager.getCurrentUser();
+          window.location.href = `profile.html?id=${currentUser.id}`;
+        }
+      });
+    </script>
+  </body>
+</html>
+
