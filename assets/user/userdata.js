@@ -33,7 +33,7 @@ class UserDataManager {
             email: userData.email || null,
             phone: userData.phone || null,
             gender: userData.gender || null,
-            avatar: userData.avatar || 'assets/images/user_default_photo.png',
+            avatar: userData.avatar || 'https://luoyunofficial.github.io/solar/assets/user/user_default_photo.png',
             bio: userData.bio || null,
             password: this.hashPassword(userData.password),
             verificationStatus: 0, // 0: unverified, 1: personal, 2: enterprise, 3: special
